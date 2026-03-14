@@ -7,7 +7,7 @@
   <meta name="description" content="BlueWave IT provides managed IT services, cybersecurity, cloud support, and backup solutions to small businesses across the Algarve region." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -42,7 +42,8 @@
       --max:          1240px;
       --header-h:     72px;
       /* Typography */
-      --font-display: 'Syne', sans-serif;
+      --font-display: 'Syne'
+      --fd-head: 'Questrial', sans-serif;
       --font-body:    'DM Sans', sans-serif;
       --font-mono:    'DM Mono', monospace;
     }
@@ -90,9 +91,9 @@
     }
 
     h1, h2, h3, h4, .brand { font-family: var(--font-display); margin: 0; }
-    h1 { font-weight: 800; letter-spacing: -0.035em; }
-    h2 { font-weight: 700; letter-spacing: -0.025em; }
-    h3 { font-weight: 700; letter-spacing: -0.015em; }
+    h1 { font-family: 'Questrial', sans-serif; font-weight: 400; letter-spacing: 0.01em; }
+    h2 { font-family: 'Questrial', sans-serif; font-weight: 400; letter-spacing: 0.01em; }
+    h3 { font-family: 'Questrial', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
     h4 { font-weight: 600; letter-spacing: -0.01em; }
     a  { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -205,7 +206,7 @@
     body.theme-light .nav-links a:hover { background: rgba(10,22,40,0.05); }
 
     /* Nav right */
-    .nav-right { display: flex; gap: 10px; align-items: center; }
+    .nav-right { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; }
 
     .toggle-group {
       display: inline-flex;
@@ -1395,6 +1396,39 @@
     @media (max-width: 1080px) {
       .nav-links { display: none; }
       .nav-toggle { display: inline-flex; }
+      .nav-cta { display: none; }
+    }
+
+    /* ─── MOBILE NAV ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      /* Hide "MANAGED IT SERVICES" subtitle */
+      .logo-wordmark span { display: none; }
+
+      /* Hide hero eyebrow pill */
+      .eyebrow { display: none; }
+
+      /* Shrink toggle buttons */
+      .tog .tog-btn, .toggle-group .toggle-btn {
+        padding: 5px 8px;
+        font-size: 0.76rem;
+      }
+      .tog, .toggle-group { padding: 3px; }
+
+      /* Stack the nav: logo row on top, toggles row below */
+      .nav {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px 0;
+        min-height: unset;
+      }
+      /* Logo takes full first row */
+      .logo { flex: 1 1 auto; }
+      /* nav-right: toggles + hamburger fill second row */
+      .nav-right {
+        flex: 0 0 auto;
+        gap: 6px;
+        margin-left: auto;
+      }
     }
 
     @media (max-width: 980px) {
@@ -1523,7 +1557,6 @@
           <button class="toggle-btn active" data-lang="en">EN</button>
           <button class="toggle-btn"        data-lang="pt">PT</button>
         </div>
-        <a href="#contact" class="btn btn-primary" data-i18n="cta_book">Book a Consultation</a>
         <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
       </div>
     </div>
@@ -1533,16 +1566,12 @@
       <a href="#about"    data-i18n="nav_about">About</a>
       <a href="#pricing"  data-i18n="nav_pricing">Pricing</a>
       <a href="#faq"      data-i18n="nav_faq">FAQ</a>
-      <a href="#contact"  data-i18n="nav_contact">Contact</a>
-      <div class="m-row">
-        <div class="toggle-group">
+      <a href="#contact"  data-i18n="nav_contact">Contact</a><div class="toggle-group">
           <button class="toggle-btn active" data-theme="dark"  data-i18n="theme_dark">Dark</button>
           <button class="toggle-btn"        data-theme="light" data-i18n="theme_light">Light</button>
         </div>
-        <div class="toggle-group">
-          <button class="toggle-btn active" data-lang="en">EN</button>
-          <button class="toggle-btn"        data-lang="pt">PT</button>
-        </div>
+        
+        
       </div>
     </div>
   </header>
@@ -2528,7 +2557,7 @@
 
     function renderNvd(data, lang) {
       _nvdData = data;
-      var vulns  = (data.vulnerabilities || []).slice(0, 7);
+      var vulns  = (data.vulnerabilities || []).slice(0, 10);
       var total  = data.totalResults || 0;
       var counts = { crit:0, high:0, med:0, low:0, none:0 };
       vulns.forEach(function(v){ counts[sevClass(getScore(v.cve))]++; });
