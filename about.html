@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | BlueWave IT — Managed IT Services, Algarve</title>
+  <meta name="description" content="BlueWave IT is a Portimão-based MSP delivering enterprise-grade managed IT, cybersecurity, and cloud services to growing businesses across the Algarve."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg:        #060e1a;
+      --bg-alt:    #0a1523;
+      --bg-card:   rgba(255,255,255,0.038);
+      --bg-card-h: rgba(255,255,255,0.065);
+      --text:      #eef4fc;
+      --muted:     #7d9ab8;
+      --muted-2:   #a4bdd4;
+      --line:      rgba(255,255,255,0.09);
+      --line-s:    rgba(255,255,255,0.14);
+      --cyan:      #00c2cb;
+      --cyan-2:    #38d9e8;
+      --cyan-3:    #b2f5ff;
+      --blue:      #0f4c81;
+      --blue-m:    #1565a8;
+      --green:     #3ee89a;
+      --amber:     #ffcf4e;
+      --danger:    #ff5f5f;
+      --shadow:    0 20px 64px rgba(0,0,0,0.50);
+      --shadow-sm: 0 8px 28px rgba(0,0,0,0.30);
+      --shadow-c:  0 4px 24px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12);
+      --r:         20px;
+      --r-sm:      13px;
+      --max:       1240px;
+      --hh:        72px;
+      --fd:        'Syne', sans-serif;
+      --fb:        'DM Sans', sans-serif;
+      --fm:        'DM Mono', monospace;
+    }
+    body.theme-light {
+      --bg:        #f3f8fd;
+      --bg-alt:    #e8f1fa;
+      --bg-card:   rgba(255,255,255,0.85);
+      --bg-card-h: rgba(255,255,255,0.98);
+      --text:      #0a1628;
+      --muted:     #4d6b88;
+      --muted-2:   #3d5a74;
+      --line:      rgba(10,22,40,0.09);
+      --line-s:    rgba(10,22,40,0.15);
+      --shadow:    0 20px 64px rgba(10,22,40,0.14);
+      --shadow-sm: 0 8px 28px rgba(10,22,40,0.10);
+      --shadow-c:  0 4px 24px rgba(10,22,40,0.10), 0 1px 4px rgba(10,22,40,0.06);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--fb);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 55% at 0% 0%,   rgba(0,194,203,0.12), transparent 50%),
+        radial-gradient(ellipse 60% 45% at 100% 5%,  rgba(15,76,129,0.11), transparent 50%),
+        linear-gradient(180deg, #060e1a 0%, #07101e 100%);
+      overflow-x: hidden;
+      transition: background 250ms ease, color 250ms ease;
+    }
+    body.theme-light {
+      background:
+        radial-gradient(ellipse 80% 55% at 0% 0%,   rgba(0,194,203,0.07), transparent 50%),
+        radial-gradient(ellipse 60% 45% at 100% 5%,  rgba(15,76,129,0.06), transparent 50%),
+        linear-gradient(180deg, #f3f8fd 0%, #edf4fb 100%);
+    }
+    h1,h2,h3,h4 { font-family: var(--fd); margin: 0; }
+    h1 { font-weight: 800; letter-spacing: -0.035em; }
+    h2 { font-weight: 700; letter-spacing: -0.025em; }
+    h3 { font-weight: 700; letter-spacing: -0.015em; }
+    h4 { font-weight: 600; letter-spacing: -0.01em; }
+    p  { margin: 0; }
+    a  { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity 650ms cubic-bezier(0.16,1,0.3,1), transform 650ms cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .d1{transition-delay:80ms} .d2{transition-delay:160ms}
+    .d3{transition-delay:240ms} .d4{transition-delay:320ms}
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 60;
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      background: rgba(6,14,26,0.72);
+      border-bottom: 1px solid var(--line);
+      transition: background 200ms ease, box-shadow 200ms ease;
+    }
+    body.theme-light .site-header { background: rgba(243,248,253,0.82); }
+    .site-header.scrolled { background: rgba(6,14,26,0.95); box-shadow: 0 8px 32px rgba(0,0,0,0.30); border-bottom-color: var(--line-s); }
+    body.theme-light .site-header.scrolled { background: rgba(243,248,253,0.97); box-shadow: 0 8px 32px rgba(10,22,40,0.10); }
+    .nav { min-height: var(--hh); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+    .logo-mark {
+      width: 42px; height: 42px; border-radius: 12px; flex: 0 0 auto;
+      background: linear-gradient(135deg, rgba(0,194,203,0.25), rgba(15,76,129,0.30));
+      border: 1px solid rgba(56,217,232,0.24);
+      box-shadow: 0 0 26px rgba(0,194,203,0.15);
+      display: grid; place-items: center; overflow: hidden;
+    }
+    .logo-wordmark { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-wordmark strong { font-family: var(--fd); font-size: 1.08rem; font-weight: 700; }
+    .logo-wordmark span   { color: var(--muted); font-size: 0.73rem; letter-spacing: 0.09em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a { color: var(--muted-2); font-size: 0.94rem; font-weight: 500; padding: 6px 12px; border-radius: 8px; transition: color 160ms, background 160ms; }
+    .nav-links a:hover  { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-links a.active { color: var(--cyan-2); }
+    body.theme-light .nav-links a:hover { background: rgba(10,22,40,0.05); }
+    .nav-right { display: flex; gap: 10px; align-items: center; }
+    .tog { display: inline-flex; gap: 2px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); }
+    body.theme-light .tog { background: rgba(10,22,40,0.04); }
+    .tog-btn { border: 0; background: transparent; color: var(--muted); padding: 6px 11px; border-radius: 999px; font-size: 0.83rem; font-weight: 500; transition: all 180ms; }
+    .tog-btn.active { background: rgba(56,217,232,0.15); color: var(--text); }
+    .nav-toggle { display: none; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line-s); background: rgba(255,255,255,0.04); color: var(--text); font-size: 1.2rem; align-items: center; justify-content: center; }
+    .mobile-menu { display: none; padding: 0 0 14px; }
+    .mobile-menu.open { display: grid; gap: 8px; }
+    .mobile-menu a, .mobile-menu .m-row { padding: 11px 14px; border-radius: 13px; background: var(--bg-card); border: 1px solid var(--line); color: var(--text); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+    .mobile-menu .m-row { flex-wrap: wrap; gap: 8px; }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; border-radius: 999px; border: 1px solid transparent; font-family: var(--fd); font-size: 0.93rem; font-weight: 600; letter-spacing: 0.01em; transition: transform 200ms, box-shadow 200ms, background 200ms, border-color 200ms; white-space: nowrap; }
+    .btn-primary { background: linear-gradient(130deg, #00c2cb, #38d9e8); color: #031922; box-shadow: 0 6px 22px rgba(0,194,203,0.32), inset 0 1px 0 rgba(255,255,255,0.20); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,194,203,0.42), inset 0 1px 0 rgba(255,255,255,0.20); }
+    .btn-secondary { background: rgba(255,255,255,0.04); border-color: var(--line-s); color: var(--text); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(56,217,232,0.30); transform: translateY(-2px); }
+    body.theme-light .btn-secondary { background: rgba(10,22,40,0.04); }
+    body.theme-light .btn-secondary:hover { background: rgba(10,22,40,0.08); }
+
+    /* ── SHARED ── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      border: 1px solid rgba(56,217,232,0.18); background: rgba(255,255,255,0.03);
+      color: var(--cyan-3); font-size: 0.79rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .section-label::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--cyan-2); box-shadow:0 0 0 5px rgba(56,217,232,0.10); flex:0 0 auto; }
+    body.theme-light .section-label { background: rgba(10,22,40,0.04); color: var(--blue-m); }
+    .gradient-text { background: linear-gradient(105deg, #4beaf4 0%, #00c2cb 45%, #6af0fc 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    body.theme-light .gradient-text { background: linear-gradient(105deg, #006f80, #009ab0); -webkit-background-clip: text; background-clip: text; }
+    .icon-svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    section { padding: 68px 0; }
+    .band { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .feature-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+    .feature-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted-2); font-size: 0.95rem; }
+    .feature-list li::before { content:""; width:18px; height:18px; margin-top:2px; flex:0 0 auto; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338d9e8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative; overflow: hidden;
+      padding: 88px 0 72px; isolation: isolate;
+    }
+    .page-hero::before {
+      content:""; position:absolute; inset:0; z-index:-1;
+      background-image: linear-gradient(rgba(255,255,255,0.030) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.030) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, rgba(0,0,0,0.6), transparent 70%);
+    }
+    body.theme-light .page-hero::before { background-image: linear-gradient(rgba(10,22,40,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(10,22,40,0.03) 1px, transparent 1px); }
+    .page-hero::after { content:""; position:absolute; z-index:-1; width:600px; height:600px; border-radius:50%; right:-200px; top:-200px; background:radial-gradient(circle, rgba(0,194,203,0.13), transparent 65%); filter:blur(40px); animation:floatGlow 12s ease-in-out infinite; }
+    @keyframes floatGlow { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(0,-20px) scale(1.04)} }
+
+    .hero-breadcrumb { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:0.85rem; margin-bottom:24px; }
+    .hero-breadcrumb a { transition: color 160ms; }
+    .hero-breadcrumb a:hover { color: var(--text); }
+    .hero-breadcrumb .sep { opacity: 0.4; }
+    .hero-breadcrumb .current { color: var(--cyan-2); }
+
+    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .page-hero h1 { font-size: clamp(3rem, 6vw, 5.2rem); line-height: 0.92; margin-bottom: 24px; }
+    .page-hero p  { color: var(--muted-2); max-width: 58ch; font-size: 1.08rem; margin: 0 0 32px; }
+
+    /* Identity card in hero */
+    .identity-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+      border: 1px solid var(--line-s); border-radius: 24px;
+      padding: 28px; box-shadow: var(--shadow);
+      position: relative; overflow: hidden;
+    }
+    .identity-card::before { content:""; position:absolute; inset:auto -20% -20% auto; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(0,194,203,0.16), transparent 65%); pointer-events:none; }
+    .id-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .id-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .id-icon { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(0,194,203,0.15), rgba(15,76,129,0.22)); border: 1px solid rgba(56,217,232,0.18); color: var(--cyan-3); flex: 0 0 auto; }
+    .id-label { color: var(--muted); font-size: 0.79rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 3px; }
+    .id-value { color: var(--text); font-size: 0.97rem; font-weight: 500; }
+
+    /* ── ANIMATED STAT COUNTERS ── */
+    .stats-section { padding: 0 0 72px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r);
+      padding: 28px 24px; text-align: center; position: relative; overflow: hidden;
+      transition: transform 220ms, border-color 220ms;
+    }
+    .stat-card::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%, rgba(0,194,203,0.08), transparent 60%); opacity:0; transition:opacity 300ms; }
+    .stat-card:hover { transform: translateY(-4px); border-color: rgba(56,217,232,0.24); }
+    .stat-card:hover::before { opacity:1; }
+    .stat-num {
+      font-family: var(--fm); font-size: 3rem; font-weight: 500; line-height: 1;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin-bottom: 10px;
+    }
+    .stat-label { color: var(--muted-2); font-size: 0.92rem; line-height: 1.4; }
+
+    /* ── MISSION SECTION ── */
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+    .mission-copy h2 { font-size: clamp(2rem, 3.2vw, 2.9rem); margin-bottom: 20px; line-height: 1.05; }
+    .mission-copy p  { color: var(--muted-2); font-size: 1.03rem; line-height: 1.75; margin-bottom: 16px; }
+
+    /* Values accordion */
+    .values-list { display: grid; gap: 0; }
+    .value-item {
+      border-bottom: 1px solid var(--line); overflow: hidden;
+    }
+    .value-item:first-child { border-top: 1px solid var(--line); }
+    .value-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 18px 0; cursor: pointer; background: transparent; border: 0;
+      color: var(--text); width: 100%; text-align: left;
+      transition: color 180ms;
+    }
+    .value-head:hover { color: var(--cyan-2); }
+    .value-head-left { display: flex; align-items: center; gap: 14px; }
+    .value-num { font-family: var(--fm); font-size: 0.78rem; color: var(--cyan-2); min-width: 22px; }
+    .value-title { font-family: var(--fd); font-size: 1.05rem; font-weight: 700; }
+    .v-chevron { width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(56,217,232,0.20); background: rgba(56,217,232,0.06); display: grid; place-items: center; color: var(--cyan-2); font-size: 1.1rem; transition: transform 260ms, background 200ms; flex: 0 0 auto; }
+    .value-item.open .v-chevron { transform: rotate(45deg); background: rgba(56,217,232,0.14); }
+    .value-body { max-height: 0; overflow: hidden; transition: max-height 300ms ease, padding 300ms ease; color: var(--muted-2); font-size: 0.96rem; line-height: 1.7; padding: 0 0 0 36px; }
+    .value-item.open .value-body { max-height: 300px; padding: 0 0 18px 36px; }
+
+    /* Mission visual — animated rings */
+    .mission-visual { position: sticky; top: calc(var(--hh) + 24px); }
+    .rings-card {
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: 24px;
+      padding: 32px; box-shadow: var(--shadow);
+    }
+    .rings-card h4 { font-size: 0.92rem; margin-bottom: 24px; color: var(--muted-2); font-weight: 500; text-align: center; }
+    .rings-wrap { position: relative; width: 220px; height: 220px; margin: 0 auto 28px; }
+    .ring-svg { position: absolute; inset: 0; }
+    .ring-svg.r1 { animation: spinCW  18s linear infinite; }
+    .ring-svg.r2 { animation: spinCCW 24s linear infinite; }
+    .ring-svg.r3 { animation: spinCW  32s linear infinite; }
+    @keyframes spinCW  { to { transform: rotate(360deg);  } }
+    @keyframes spinCCW { to { transform: rotate(-360deg); } }
+    .rings-center { position: absolute; inset: 40px; border-radius: 50%; background: radial-gradient(circle, rgba(0,194,203,0.15), rgba(255,255,255,0.02)); border: 1px solid rgba(56,217,232,0.18); display: grid; place-items: center; }
+    .rings-center-text { text-align: center; }
+    .rings-center-text strong { display: block; font-family: var(--fd); font-size: 1.5rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 4px; }
+    .rings-center-text span { color: var(--muted); font-size: 0.78rem; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .pillar { padding: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--line); border-radius: 12px; text-align: center; }
+    .pillar-icon { font-size: 1.3rem; margin-bottom: 6px; }
+    .pillar-name { font-size: 0.78rem; font-weight: 600; color: var(--muted-2); }
+
+    /* ── STORY TIMELINE ── */
+    .timeline-section { padding: 80px 0; }
+    .timeline-wrap { position: relative; max-width: 780px; margin: 0 auto; padding-top: 16px; }
+    .timeline-wrap::before { content:""; position:absolute; left:50%; top:0; bottom:0; width:2px; background:linear-gradient(180deg, var(--cyan), rgba(56,217,232,0.15)); transform:translateX(-50%); }
+    .tl-item { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; margin-bottom: 44px; align-items: start; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-left  { padding-right: 28px; text-align: right; }
+    .tl-right { padding-left:  28px; }
+    .tl-empty { }
+    .tl-dot-col { display: flex; justify-content: center; padding-top: 6px; }
+    .tl-dot {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-2));
+      display: grid; place-items: center;
+      box-shadow: 0 0 0 6px rgba(0,194,203,0.12), 0 0 0 12px rgba(0,194,203,0.05);
+      color: #031922; font-family: var(--fm); font-size: 0.82rem; font-weight: 500;
+      z-index: 1; position: relative; flex: 0 0 auto;
+    }
+    .tl-year  { font-family: var(--fm); font-size: 0.80rem; color: var(--cyan-2); margin-bottom: 6px; }
+    .tl-card  { background: var(--bg-card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; transition: border-color 200ms, transform 200ms; }
+    .tl-card:hover { border-color: rgba(56,217,232,0.26); transform: translateY(-2px); }
+    .tl-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .tl-card p  { color: var(--muted-2); font-size: 0.90rem; line-height: 1.55; }
+
+    /* ── WHY ALGARVE SECTION ── */
+    .algarve-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .algarve-copy h2 { font-size: clamp(2rem, 3.2vw, 2.9rem); margin-bottom: 18px; line-height: 1.05; }
+    .algarve-copy p  { color: var(--muted-2); font-size: 1.03rem; line-height: 1.75; margin-bottom: 16px; }
+    .region-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .region-chip { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--muted-2); font-size: 0.86rem; font-weight: 500; display: flex; align-items: center; gap: 7px; transition: all 180ms; }
+    .region-chip:hover { border-color: rgba(56,217,232,0.28); color: var(--text); background: rgba(56,217,232,0.06); }
+    .region-chip::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--cyan-2); flex:0 0 auto; }
+
+    /* Interactive map card */
+    .map-card {
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: 24px;
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .map-header { padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .map-header h4 { font-size: 0.92rem; font-weight: 600; }
+    .map-live { display: inline-flex; align-items: center; gap: 6px; font-size: 0.76rem; color: var(--cyan-3); background: rgba(56,217,232,0.08); border: 1px solid rgba(56,217,232,0.18); padding: 5px 11px; border-radius: 999px; }
+    .map-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan-2); animation: mpulse 2s infinite; }
+    @keyframes mpulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .map-embed { position: relative; height: 280px; }
+    .map-embed iframe { width: 100%; height: 100%; border: 0; display: block; filter: saturate(0.8) contrast(1.05); }
+    body.theme-light .map-embed iframe { filter: none; }
+    .map-footer { padding: 16px 22px; display: grid; gap: 10px; }
+    .map-detail { display: flex; align-items: flex-start; gap: 12px; }
+    .map-detail-icon { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, rgba(0,194,203,0.14), rgba(15,76,129,0.20)); border: 1px solid rgba(56,217,232,0.16); display: grid; place-items: center; color: var(--cyan-3); flex: 0 0 auto; }
+    .map-detail-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .map-detail-label { color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+    .map-detail-value { color: var(--text); font-size: 0.92rem; font-weight: 500; }
+    .map-cta { display: block; margin: 4px 22px 18px; padding: 11px; border-radius: 12px; background: linear-gradient(130deg, rgba(0,194,203,0.12), rgba(15,76,129,0.12)); border: 1px solid rgba(56,217,232,0.18); color: var(--cyan-3); text-align: center; font-size: 0.88rem; font-weight: 600; font-family: var(--fd); transition: all 200ms; }
+    .map-cta:hover { background: linear-gradient(130deg, rgba(0,194,203,0.20), rgba(15,76,129,0.20)); transform: translateY(-1px); }
+
+    /* ── TEAM / APPROACH SECTION ── */
+    .approach-section { padding: 80px 0; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .approach-card {
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r);
+      padding: 28px; transition: transform 220ms, border-color 220ms, background 220ms;
+      position: relative; overflow: hidden;
+    }
+    .approach-card::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at top right, rgba(0,194,203,0.07), transparent 50%); opacity:0; transition:opacity 300ms; }
+    .approach-card:hover { transform: translateY(-5px); border-color: rgba(56,217,232,0.24); background: var(--bg-card-h); }
+    .approach-card:hover::before { opacity:1; }
+    .approach-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px; background: linear-gradient(135deg, rgba(0,194,203,0.16), rgba(15,76,129,0.24)); border: 1px solid rgba(56,217,232,0.22); color: var(--cyan-3); }
+    .approach-icon svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .approach-card h3 { font-size: 1.1rem; margin-bottom: 10px; position: relative; z-index:1; }
+    .approach-card p  { color: var(--muted-2); font-size: 0.93rem; line-height: 1.6; position: relative; z-index:1; }
+
+    /* ── TECH STACK INTERACTIVE ── */
+    .stack-section { padding: 80px 0; }
+    .stack-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .stack-tab { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--muted-2); font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all 180ms; }
+    .stack-tab:hover, .stack-tab.active { background: rgba(56,217,232,0.12); border-color: rgba(56,217,232,0.28); color: var(--text); }
+    .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .stack-item {
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: 16px;
+      padding: 20px 16px; text-align: center;
+      transition: transform 220ms, border-color 220ms, opacity 300ms;
+      cursor: default;
+    }
+    .stack-item:hover { transform: translateY(-3px); border-color: rgba(56,217,232,0.22); }
+    .stack-item.hidden { display: none; }
+    .stack-emoji { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    .stack-name { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .stack-cat  { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── GDPR/COMPLIANCE BADGE ROW ── */
+    .compliance-section { padding: 0 0 72px; }
+    .compliance-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .comp-badge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 22px; border-radius: 16px;
+      background: var(--bg-card); border: 1px solid var(--line);
+      transition: border-color 200ms, transform 200ms;
+    }
+    .comp-badge:hover { border-color: rgba(56,217,232,0.22); transform: translateY(-2px); }
+    .comp-badge-icon { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(0,194,203,0.14), rgba(15,76,129,0.20)); border: 1px solid rgba(56,217,232,0.18); color: var(--cyan-3); flex: 0 0 auto; }
+    .comp-badge-icon svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .comp-name { font-size: 0.90rem; font-weight: 600; color: var(--text); }
+    .comp-desc { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta-section { padding: 0 0 80px; }
+    .cta-box { padding: 64px 52px; background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,194,203,0.14), transparent 60%), linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(56,217,232,0.18); border-radius: 28px; text-align: center; position: relative; overflow: hidden; }
+    .cta-box::before { content:""; position:absolute; width:400px; height:400px; left:-150px; top:-150px; border-radius:50%; background:radial-gradient(circle, rgba(0,194,203,0.10), transparent 60%); pointer-events:none; }
+    .cta-box::after  { content:""; position:absolute; width:300px; height:300px; right:-100px; bottom:-100px; border-radius:50%; background:radial-gradient(circle, rgba(15,76,129,0.12), transparent 60%); pointer-events:none; }
+    .cta-box h2 { font-size: clamp(2rem,3.5vw,3rem); margin-bottom: 16px; position: relative; z-index: 1; }
+    .cta-box p  { max-width: 56ch; margin: 0 auto 32px; color: var(--muted-2); font-size: 1.05rem; position: relative; z-index: 1; }
+    .cta-btns   { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* ── FOOTER ── */
+    .site-footer { border-top: 1px solid var(--line); background: var(--bg-alt); padding: 44px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+    .footer-brand p { color: var(--muted); font-size: 0.90rem; margin-top: 12px; max-width: 34ch; line-height: 1.6; }
+    .footer-col h4 { font-size: 0.80rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+    .footer-col ul a { color: var(--muted-2); font-size: 0.91rem; transition: color 160ms; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.87rem; }
+    .footer-legal { display: flex; gap: 18px; }
+    .footer-legal a { color: var(--muted); transition: color 160ms; }
+    .footer-legal a:hover { color: var(--text); }
+    .footer-logo-row { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-row strong { font-family: var(--fd); font-size: 1rem; font-weight: 700; }
+
+    .back-to-top { position:fixed; right:20px; bottom:20px; width:44px; height:44px; border-radius:13px; border:1px solid var(--line-s); background:rgba(6,14,26,0.88); backdrop-filter:blur(10px); color:var(--text); display:grid; place-items:center; font-size:1rem; opacity:0; transform:translateY(12px); pointer-events:none; transition:all 200ms; box-shadow:var(--shadow-sm); z-index:70; }
+    .back-to-top.show { opacity:1; transform:none; pointer-events:auto; }
+    body.theme-light .back-to-top { background: rgba(255,255,255,0.92); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1080px) { .nav-links{display:none;} .nav-toggle{display:inline-flex;} }
+    @media (max-width: 980px) {
+      section { padding: 52px 0; }
+      .hero-layout, .mission-grid, .algarve-grid { grid-template-columns: 1fr; gap: 36px; }
+      .stats-grid     { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid  { grid-template-columns: repeat(2, 1fr); }
+      .stack-grid     { grid-template-columns: repeat(3, 1fr); }
+      .mission-visual, .algarve-visual { position: static; }
+      .tl-item        { grid-template-columns: 0 48px 1fr; }
+      .tl-left        { display: none; }
+      .timeline-wrap::before { left: 24px; }
+      .footer-grid    { grid-template-columns: 1fr 1fr; }
+      .cta-box        { padding: 44px 30px; }
+    }
+    @media (max-width: 640px) {
+      .stats-grid     { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid  { grid-template-columns: 1fr; }
+      .stack-grid     { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid    { grid-template-columns: 1fr; }
+      .compliance-row { flex-direction: column; align-items: stretch; }
+      .cta-box        { padding: 36px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="BlueWave IT Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+            <path d="M6 22C6 14 10 8 16 6C22 8 26 14 26 22" stroke="#38d9e8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 22C10 16 12.5 11 16 10C19.5 11 22 16 22 22" stroke="#00c2cb" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 22C14 18.5 14.8 15.5 16 14C17.2 15.5 18 18.5 18 22" stroke="#b2f5ff" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-wordmark">
+          <strong>BlueWave IT</strong>
+          <span data-i18n="nav_label">Managed IT Services</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html"     data-i18n="nav_home">Home</a>
+        <a href="services.html"  data-i18n="nav_services">Services</a>
+        <a href="about.html" class="active" data-i18n="nav_about">About</a>
+        <a href="index.html#pricing" data-i18n="nav_pricing">Pricing</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="tog">
+          <button class="tog-btn active" data-theme="dark"  data-i18n="theme_dark">Dark</button>
+          <button class="tog-btn"        data-theme="light" data-i18n="theme_light">Light</button>
+        </div>
+        <div class="tog">
+          <button class="tog-btn active" data-lang="en">EN</button>
+          <button class="tog-btn"        data-lang="pt">PT</button>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary" data-i18n="cta_book">Book a Consultation</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="index.html"         data-i18n="nav_home">Home</a>
+      <a href="services.html"      data-i18n="nav_services">Services</a>
+      <a href="about.html"         data-i18n="nav_about">About</a>
+      <a href="index.html#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      <div class="m-row">
+        <div class="tog"><button class="tog-btn active" data-theme="dark" data-i18n="theme_dark">Dark</button><button class="tog-btn" data-theme="light" data-i18n="theme_light">Light</button></div>
+        <div class="tog"><button class="tog-btn active" data-lang="en">EN</button><button class="tog-btn" data-lang="pt">PT</button></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="hero-breadcrumb reveal">
+        <a href="index.html" data-i18n="bc_home">Home</a>
+        <span class="sep">›</span>
+        <span class="current" data-i18n="bc_current">About</span>
+      </div>
+      <div class="hero-layout">
+        <div>
+          <div class="section-label reveal d1" data-i18n="hero_label">Who We Are</div>
+          <h1 class="reveal d1">
+            <span data-i18n="hero_h1_a">Built for the</span><br>
+            <span data-i18n="hero_h1_b">businesses that</span><br>
+            <span class="gradient-text" data-i18n="hero_h1_c">keep the Algarve moving.</span>
+          </h1>
+          <p class="reveal d2" data-i18n="hero_p">BlueWave IT is a Portimão-based managed service provider delivering enterprise-grade IT support, cybersecurity, and cloud management to small and midsize businesses across the Algarve region.</p>
+          <div class="reveal d2" style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="index.html#contact" class="btn btn-primary"   data-i18n="hero_cta_1">Work With Us</a>
+            <a href="services.html"      class="btn btn-secondary" data-i18n="hero_cta_2">View Services</a>
+          </div>
+        </div>
+        <div class="reveal d2">
+          <div class="identity-card">
+            <div class="id-row">
+              <div class="id-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+              <div>
+                <div class="id-label" data-i18n="id_hq_label">Headquarters</div>
+                <div class="id-value" data-i18n="id_hq_value">Portimão, Algarve, Portugal</div>
+              </div>
+            </div>
+            <div class="id-row">
+              <div class="id-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div>
+                <div class="id-label" data-i18n="id_addr_label">Address</div>
+                <div class="id-value" data-i18n="id_addr_value">Av. 25 de Abril 6, 8500-511 Portimão</div>
+              </div>
+            </div>
+            <div class="id-row">
+              <div class="id-icon"><svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><path d="M8 7V5a2 2 0 0 1 4 0v2"/></svg></div>
+              <div>
+                <div class="id-label" data-i18n="id_type_label">Business Type</div>
+                <div class="id-value" data-i18n="id_type_value">Managed Service Provider (MSP)</div>
+              </div>
+            </div>
+            <div class="id-row">
+              <div class="id-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+              <div>
+                <div class="id-label" data-i18n="id_focus_label">Focus</div>
+                <div class="id-value" data-i18n="id_focus_value">SMBs — 5 to 50 employees</div>
+              </div>
+            </div>
+            <div class="id-row">
+              <div class="id-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div>
+                <div class="id-label" data-i18n="id_comp_label">Compliance</div>
+                <div class="id-value" data-i18n="id_comp_value">GDPR-aligned, EU data practices</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ANIMATED STATS ── -->
+  <section class="stats-section band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-num"><span class="counter" data-target="50" data-suffix="+">0</span></div>
+          <div class="stat-label" data-i18n="stat_1_lbl">Businesses supported across the Algarve</div>
+        </div>
+        <div class="stat-card reveal d1">
+          <div class="stat-num"><span class="counter" data-target="99.8" data-suffix="%">0</span></div>
+          <div class="stat-label" data-i18n="stat_2_lbl">Average backup integrity across all clients</div>
+        </div>
+        <div class="stat-card reveal d2">
+          <div class="stat-num"><span class="counter" data-target="15" data-suffix=" min">0</span></div>
+          <div class="stat-label" data-i18n="stat_3_lbl">Average helpdesk response time</div>
+        </div>
+        <div class="stat-card reveal d3">
+          <div class="stat-num"><span class="counter" data-target="6" data-suffix="">0</span></div>
+          <div class="stat-label" data-i18n="stat_4_lbl">Core service areas delivered per client</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION & VALUES ── -->
+  <section>
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-copy reveal">
+          <div class="section-label" data-i18n="mission_label">Mission & Values</div>
+          <h2 data-i18n="mission_h">Technology should work. Quietly. Reliably. Every single day.</h2>
+          <p data-i18n="mission_p1">Too many small businesses in the Algarve are running on reactive IT — calling for help when things break, crossing fingers during backups, and wondering if they're actually protected. BlueWave IT was built to change that.</p>
+          <p data-i18n="mission_p2">We believe every business — regardless of size — deserves the kind of IT infrastructure that enterprises take for granted: monitored, secured, backed up, and actively managed by people who actually understand it.</p>
+
+          <div class="values-list" style="margin-top:28px;">
+            <div class="value-item open">
+              <button class="value-head">
+                <div class="value-head-left">
+                  <span class="value-num">01</span>
+                  <span class="value-title" data-i18n="val_1_t">Proactive over reactive</span>
+                </div>
+                <span class="v-chevron">+</span>
+              </button>
+              <div class="value-body" data-i18n="val_1_b">We don't wait for things to break. We monitor, patch, verify, and alert — so problems are caught before they become incidents and incidents don't become disasters.</div>
+            </div>
+            <div class="value-item">
+              <button class="value-head">
+                <div class="value-head-left">
+                  <span class="value-num">02</span>
+                  <span class="value-title" data-i18n="val_2_t">Clarity without jargon</span>
+                </div>
+                <span class="v-chevron">+</span>
+              </button>
+              <div class="value-body" data-i18n="val_2_b">IT support shouldn't require a degree to understand. We communicate clearly, explain our reasoning, and make sure clients always know what we're doing and why.</div>
+            </div>
+            <div class="value-item">
+              <button class="value-head">
+                <div class="value-head-left">
+                  <span class="value-num">03</span>
+                  <span class="value-title" data-i18n="val_3_t">Security as a foundation</span>
+                </div>
+                <span class="v-chevron">+</span>
+              </button>
+              <div class="value-body" data-i18n="val_3_b">Security isn't an add-on. Every service we deliver — from patch management to cloud configuration — is built with security thinking from the ground up, not bolted on afterwards.</div>
+            </div>
+            <div class="value-item">
+              <button class="value-head">
+                <div class="value-head-left">
+                  <span class="value-num">04</span>
+                  <span class="value-title" data-i18n="val_4_t">Right-sized for your business</span>
+                </div>
+                <span class="v-chevron">+</span>
+              </button>
+              <div class="value-body" data-i18n="val_4_b">We don't oversell. We match the solution to the need — recommending only what actually serves the business, and growing the relationship as the business grows.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-visual reveal d1">
+          <div class="rings-card">
+            <h4 data-i18n="rings_h">Core pillars of our service model</h4>
+            <div class="rings-wrap">
+              <!-- Outer ring - dashed -->
+              <svg class="ring-svg r1" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="110" cy="110" r="104" stroke="rgba(56,217,232,0.14)" stroke-width="1.5" stroke-dasharray="6 10" stroke-linecap="round"/>
+                <circle cx="110" cy="110" r="104" stroke="url(#outerGrad)" stroke-width="2" stroke-dasharray="200 454" stroke-linecap="round" transform="rotate(-90 110 110)"/>
+                <defs>
+                  <linearGradient id="outerGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#00c2cb" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#38d9e8" stop-opacity="0.2"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <!-- Mid ring -->
+              <svg class="ring-svg r2" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="110" cy="110" r="80" stroke="rgba(56,217,232,0.10)" stroke-width="1" stroke-dasharray="4 8" stroke-linecap="round"/>
+                <circle cx="110" cy="110" r="80" stroke="url(#midGrad)" stroke-width="1.5" stroke-dasharray="120 382" stroke-linecap="round" transform="rotate(-90 110 110)"/>
+                <defs>
+                  <linearGradient id="midGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#38d9e8" stop-opacity="0.7"/>
+                    <stop offset="100%" stop-color="#00c2cb" stop-opacity="0.1"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <!-- Inner ring - static subtle -->
+              <svg class="ring-svg r3" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="110" cy="110" r="56" stroke="rgba(0,194,203,0.15)" stroke-width="1" stroke-dasharray="3 6" stroke-linecap="round"/>
+              </svg>
+              <div class="rings-center">
+                <div class="rings-center-text">
+                  <strong data-i18n="rings_center_val">MSP</strong>
+                  <span data-i18n="rings_center_lbl">Managed Services</span>
+                </div>
+              </div>
+            </div>
+            <div class="pillars-grid">
+              <div class="pillar">
+                <div class="pillar-icon">🛡️</div>
+                <div class="pillar-name" data-i18n="pillar_1">Security</div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">☁️</div>
+                <div class="pillar-name" data-i18n="pillar_2">Cloud</div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">📡</div>
+                <div class="pillar-name" data-i18n="pillar_3">Network</div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">💾</div>
+                <div class="pillar-name" data-i18n="pillar_4">Backup</div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">🔧</div>
+                <div class="pillar-name" data-i18n="pillar_5">Support</div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">📊</div>
+                <div class="pillar-name" data-i18n="pillar_6">Consulting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPANY STORY TIMELINE ── -->
+  <section class="timeline-section band">
+    <div class="container reveal">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="section-label" style="margin:0 auto 14px;" data-i18n="tl_label">Our Story</div>
+        <h2 style="font-size:clamp(2rem,3.2vw,2.8rem);margin-bottom:12px;" data-i18n="tl_h">How BlueWave IT came to be</h2>
+        <p style="color:var(--muted-2);max-width:56ch;margin:0 auto;" data-i18n="tl_p">Built from years of hands-on experience with the real IT challenges that Algarve SMBs face every day.</p>
+      </div>
+      <div class="timeline-wrap">
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-card">
+              <div class="tl-year" data-i18n="tl_1_year">Foundation</div>
+              <h4 data-i18n="tl_1_h">Born from firsthand frustration</h4>
+              <p data-i18n="tl_1_p">BlueWave IT was founded after seeing too many Algarve businesses lose time and money to preventable IT problems — slow responses, unverified backups, and security gaps that no one was watching.</p>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot">01</div></div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot">02</div></div>
+          <div class="tl-right">
+            <div class="tl-card">
+              <div class="tl-year" data-i18n="tl_2_year">First clients</div>
+              <h4 data-i18n="tl_2_h">Starting with local businesses</h4>
+              <p data-i18n="tl_2_p">The first managed service contracts came from real estate agencies and professional services firms in Portimão and Lagos — businesses with no internal IT and real stakes in keeping systems running.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-card">
+              <div class="tl-year" data-i18n="tl_3_year">Security focus</div>
+              <h4 data-i18n="tl_3_h">Cybersecurity becomes core</h4>
+              <p data-i18n="tl_3_p">As ransomware attacks on small businesses accelerated across Europe, BlueWave IT built a full cybersecurity layer into every managed service engagement — EDR, email security, MFA, and firewall management.</p>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot">03</div></div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-empty"></div>
+          <div class="tl-dot-col"><div class="tl-dot">04</div></div>
+          <div class="tl-right">
+            <div class="tl-card">
+              <div class="tl-year" data-i18n="tl_4_year">Cloud expansion</div>
+              <h4 data-i18n="tl_4_h">Microsoft 365 & cloud services</h4>
+              <p data-i18n="tl_4_p">Growing adoption of cloud tools in the Algarve business community led to a full M365 administration practice — migrations, SharePoint, Teams, and Defender — alongside backup and recovery services.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-card">
+              <div class="tl-year" data-i18n="tl_5_year">Today</div>
+              <h4 data-i18n="tl_5_h">One team. Six services. One region.</h4>
+              <p data-i18n="tl_5_p">BlueWave IT operates from Portimão as the Algarve's dedicated MSP — delivering comprehensive, proactive IT across managed services, cybersecurity, cloud, networking, backup, and consulting.</p>
+            </div>
+          </div>
+          <div class="tl-dot-col"><div class="tl-dot">05</div></div>
+          <div class="tl-empty"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY THE ALGARVE + MAP ── -->
+  <section>
+    <div class="container">
+      <div class="algarve-grid">
+        <div class="algarve-copy reveal">
+          <div class="section-label" data-i18n="alg_label">Our Region</div>
+          <h2 data-i18n="alg_h">Rooted in the Algarve. Built for Algarve businesses.</h2>
+          <p data-i18n="alg_p1">We're not a remote helpdesk or a multinational franchise. BlueWave IT is based in Portimão — we know the region, the business community, the seasonality challenges, and the specific IT pressures that come with running a company here.</p>
+          <p data-i18n="alg_p2">From tourism operations that need rock-solid connectivity in high season, to law and accounting firms that need GDPR-compliant data handling, to construction companies managing remote sites — we understand the context that generic IT providers miss.</p>
+          <div class="region-chips">
+            <span class="region-chip" data-i18n="chip_portimao">Portimão</span>
+            <span class="region-chip" data-i18n="chip_lagos">Lagos</span>
+            <span class="region-chip" data-i18n="chip_faro">Faro</span>
+            <span class="region-chip" data-i18n="chip_albufeira">Albufeira</span>
+            <span class="region-chip" data-i18n="chip_silves">Silves</span>
+            <span class="region-chip" data-i18n="chip_tavira">Tavira</span>
+            <span class="region-chip" data-i18n="chip_vilareal">Vila Real de Santo António</span>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <div class="map-card">
+            <div class="map-header">
+              <h4 data-i18n="map_h">BlueWave IT — Portimão Office</h4>
+              <div class="map-live"><div class="map-live-dot"></div> <span data-i18n="map_live">Open</span></div>
+            </div>
+            <div class="map-embed">
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-8.540763139724731%2C37.127543%2C-8.530763%2C37.133543&layer=mapnik&marker=37.130543%2C-8.535763"
+                allowfullscreen
+                loading="lazy"
+                title="BlueWave IT Office Location — Portimão, Algarve">
+              </iframe>
+            </div>
+            <div class="map-footer">
+              <div class="map-detail">
+                <div class="map-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <div>
+                  <div class="map-detail-label" data-i18n="map_addr_label">Address</div>
+                  <div class="map-detail-value" data-i18n="map_addr_value">Av. 25 de Abril 6, 8500-511 Portimão</div>
+                </div>
+              </div>
+              <div class="map-detail">
+                <div class="map-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.3h3a2 2 0 0 1 2 1.72 12.9 12.9 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-1.94a2 2 0 0 1 2.11-.45 12.9 12.9 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                <div>
+                  <div class="map-detail-label" data-i18n="map_region_label">Service Region</div>
+                  <div class="map-detail-value" data-i18n="map_region_value">Algarve, Portugal</div>
+                </div>
+              </div>
+              <div class="map-detail">
+                <div class="map-detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div>
+                  <div class="map-detail-label" data-i18n="map_hours_label">Business Hours</div>
+                  <div class="map-detail-value" data-i18n="map_hours_value">Mon–Fri, 9:00–18:00 WET</div>
+                </div>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Av.+25+de+Abril+6,+8500-511+Portim%C3%A3o" target="_blank" rel="noopener" class="map-cta" data-i18n="map_cta">Open in Google Maps →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OUR APPROACH CARDS ── -->
+  <section class="approach-section band">
+    <div class="container reveal">
+      <div style="margin-bottom:36px;">
+        <div class="section-label" data-i18n="approach_label">How We Work</div>
+        <h2 style="font-size:clamp(2rem,3.2vw,2.8rem);margin-bottom:12px;" data-i18n="approach_h">The BlueWave IT way</h2>
+        <p style="color:var(--muted-2);max-width:60ch;" data-i18n="approach_p">A few non-negotiable principles that shape every client relationship and every service we deliver.</p>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3 data-i18n="ap_1_h">Always-on visibility</h3>
+          <p data-i18n="ap_1_p">We monitor your environment continuously — not just when something breaks. You always have a clear picture of the health of your systems, and so do we.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 data-i18n="ap_2_h">A real person answers</h3>
+          <p data-i18n="ap_2_p">No ticket black holes. No endless call trees. When something needs attention, a qualified engineer responds — not a bot, not a first-tier script reader.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3 data-i18n="ap_3_h">Predictable costs, no surprises</h3>
+          <p data-i18n="ap_3_p">The €60/user/month model exists because your IT budget shouldn't be a mystery. One invoice, all six service areas, nothing hidden.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 data-i18n="ap_4_h">Security-first, always</h3>
+          <p data-i18n="ap_4_p">Security is a design principle, not an upsell. Every environment we manage is hardened, every user we onboard gets MFA, every backup is encrypted and tested.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3 data-i18n="ap_5_h">Clear documentation</h3>
+          <p data-i18n="ap_5_p">We document what we build. Network diagrams, runbooks, recovery procedures — you own the knowledge about your own infrastructure, not just us.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <h3 data-i18n="ap_6_h">Built to scale with you</h3>
+          <p data-i18n="ap_6_p">Whether you grow from 10 to 30 users or open a second office in Faro, the managed service model scales with you — no renegotiation, no re-scoping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECH STACK ── -->
+  <section class="stack-section">
+    <div class="container reveal">
+      <div style="margin-bottom:36px;">
+        <div class="section-label" data-i18n="stack_label">Technology Stack</div>
+        <h2 style="font-size:clamp(2rem,3.2vw,2.8rem);margin-bottom:12px;" data-i18n="stack_h">The tools we use to manage your environment</h2>
+        <p style="color:var(--muted-2);max-width:60ch;" data-i18n="stack_p">Industry-standard platforms chosen for reliability, security, and the ability to deliver enterprise-grade management at SMB scale.</p>
+      </div>
+      <div class="stack-tabs" id="stackTabs">
+        <button class="stack-tab active" data-filter="all"        data-i18n="stab_all">All</button>
+        <button class="stack-tab"        data-filter="platform"   data-i18n="stab_platform">Platforms</button>
+        <button class="stack-tab"        data-filter="security"   data-i18n="stab_security">Security</button>
+        <button class="stack-tab"        data-filter="network"    data-i18n="stab_network">Networking</button>
+        <button class="stack-tab"        data-filter="backup"     data-i18n="stab_backup">Backup</button>
+        <button class="stack-tab"        data-filter="cloud"      data-i18n="stab_cloud">Cloud</button>
+      </div>
+      <div class="stack-grid" id="stackGrid">
+        <div class="stack-item" data-cat="platform"><span class="stack-emoji">🖥️</span><div class="stack-name">Windows Server</div><div class="stack-cat" data-i18n="s_platform">Platform</div></div>
+        <div class="stack-item" data-cat="platform"><span class="stack-emoji">🔧</span><div class="stack-name">RMM Tooling</div><div class="stack-cat" data-i18n="s_platform">Platform</div></div>
+        <div class="stack-item" data-cat="cloud"><span class="stack-emoji">☁️</span><div class="stack-name">Microsoft 365</div><div class="stack-cat" data-i18n="s_cloud">Cloud</div></div>
+        <div class="stack-item" data-cat="cloud"><span class="stack-emoji">📁</span><div class="stack-name">SharePoint</div><div class="stack-cat" data-i18n="s_cloud">Cloud</div></div>
+        <div class="stack-item" data-cat="cloud"><span class="stack-emoji">💬</span><div class="stack-name">Microsoft Teams</div><div class="stack-cat" data-i18n="s_cloud">Cloud</div></div>
+        <div class="stack-item" data-cat="cloud"><span class="stack-emoji">🏢</span><div class="stack-name">Azure AD / Entra</div><div class="stack-cat" data-i18n="s_cloud">Cloud</div></div>
+        <div class="stack-item" data-cat="security"><span class="stack-emoji">🛡️</span><div class="stack-name">Defender for Business</div><div class="stack-cat" data-i18n="s_security">Security</div></div>
+        <div class="stack-item" data-cat="security"><span class="stack-emoji">🔐</span><div class="stack-name">MFA / Authenticator</div><div class="stack-cat" data-i18n="s_security">Security</div></div>
+        <div class="stack-item" data-cat="security"><span class="stack-emoji">📧</span><div class="stack-name">Email Filtering</div><div class="stack-cat" data-i18n="s_security">Security</div></div>
+        <div class="stack-item" data-cat="security"><span class="stack-emoji">🔥</span><div class="stack-name">Firewall Mgmt</div><div class="stack-cat" data-i18n="s_security">Security</div></div>
+        <div class="stack-item" data-cat="network"><span class="stack-emoji">📡</span><div class="stack-name">UniFi (Ubiquiti)</div><div class="stack-cat" data-i18n="s_network">Networking</div></div>
+        <div class="stack-item" data-cat="network"><span class="stack-emoji">🌐</span><div class="stack-name">VPN Solutions</div><div class="stack-cat" data-i18n="s_network">Networking</div></div>
+        <div class="stack-item" data-cat="network"><span class="stack-emoji">📶</span><div class="stack-name">Wi-Fi 6 APs</div><div class="stack-cat" data-i18n="s_network">Networking</div></div>
+        <div class="stack-item" data-cat="network"><span class="stack-emoji">🔌</span><div class="stack-name">Managed Switches</div><div class="stack-cat" data-i18n="s_network">Networking</div></div>
+        <div class="stack-item" data-cat="backup"><span class="stack-emoji">💾</span><div class="stack-name">Synology NAS</div><div class="stack-cat" data-i18n="s_backup">Backup</div></div>
+        <div class="stack-item" data-cat="backup"><span class="stack-emoji">🔁</span><div class="stack-name">Cloud Backup</div><div class="stack-cat" data-i18n="s_backup">Backup</div></div>
+        <div class="stack-item" data-cat="backup"><span class="stack-emoji">📦</span><div class="stack-name">M365 Backup</div><div class="stack-cat" data-i18n="s_backup">Backup</div></div>
+        <div class="stack-item" data-cat="platform"><span class="stack-emoji">⚙️</span><div class="stack-name">VMware / Hyper-V</div><div class="stack-cat" data-i18n="s_platform">Platform</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPLIANCE BADGES ── -->
+  <section class="compliance-section">
+    <div class="container reveal">
+      <div style="text-align:center;margin-bottom:32px;">
+        <div class="section-label" style="margin:0 auto 12px;" data-i18n="comp_label">Standards & Compliance</div>
+        <h2 style="font-size:clamp(1.8rem,2.8vw,2.4rem);margin-bottom:10px;" data-i18n="comp_h">Operating to EU standards in every engagement</h2>
+        <p style="color:var(--muted-2);max-width:52ch;margin:0 auto;" data-i18n="comp_p">Every client environment we manage is handled with EU data protection practices and industry-standard security frameworks.</p>
+      </div>
+      <div class="compliance-row">
+        <div class="comp-badge">
+          <div class="comp-badge-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="comp-name" data-i18n="cb_1_name">GDPR Aligned</div>
+            <div class="comp-desc" data-i18n="cb_1_desc">EU data handling practices</div>
+          </div>
+        </div>
+        <div class="comp-badge">
+          <div class="comp-badge-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div>
+            <div class="comp-name" data-i18n="cb_2_name">Zero Trust Approach</div>
+            <div class="comp-desc" data-i18n="cb_2_desc">Verify every user, every access</div>
+          </div>
+        </div>
+        <div class="comp-badge">
+          <div class="comp-badge-icon"><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 4v6h-6"/></svg></div>
+          <div>
+            <div class="comp-name" data-i18n="cb_3_name">Verified Backups</div>
+            <div class="comp-desc" data-i18n="cb_3_desc">Tested restore procedures</div>
+          </div>
+        </div>
+        <div class="comp-badge">
+          <div class="comp-badge-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
+          <div>
+            <div class="comp-name" data-i18n="cb_4_name">MFA Enforced</div>
+            <div class="comp-desc" data-i18n="cb_4_desc">All managed accounts</div>
+          </div>
+        </div>
+        <div class="comp-badge">
+          <div class="comp-badge-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="comp-name" data-i18n="cb_5_name">Email Security</div>
+            <div class="comp-desc" data-i18n="cb_5_desc">Anti-phishing & filtering</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <div class="cta-box">
+        <h2 data-i18n="cta_h">Ready to meet your new IT partner?</h2>
+        <p data-i18n="cta_p">Book a free consultation with BlueWave IT and let's talk about where your business is today, and where your IT should take it next.</p>
+        <div class="cta-btns">
+          <a href="index.html#contact" class="btn btn-primary"   data-i18n="cta_btn1">Book a Free Consultation</a>
+          <a href="services.html"      class="btn btn-secondary" data-i18n="cta_btn2">Explore Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <div class="logo-mark" style="width:36px;height:36px;border-radius:10px;">
+              <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+                <path d="M6 22C6 14 10 8 16 6C22 8 26 14 26 22" stroke="#38d9e8" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 22C10 16 12.5 11 16 10C19.5 11 22 16 22 22" stroke="#00c2cb" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>BlueWave IT</strong>
+          </div>
+          <p data-i18n="ft_tagline">Enterprise-grade IT management for growing businesses across the Algarve. Reliable, secure, and predictably priced.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="ft_svc_h">Services</h4>
+          <ul>
+            <li><a href="services.html#managed-it" data-i18n="ft_s1">Managed IT</a></li>
+            <li><a href="services.html#cybersecurity" data-i18n="ft_s2">Cybersecurity</a></li>
+            <li><a href="services.html#cloud" data-i18n="ft_s3">Cloud &amp; M365</a></li>
+            <li><a href="services.html#backup" data-i18n="ft_s4">Backup &amp; Recovery</a></li>
+            <li><a href="services.html#networking" data-i18n="ft_s5">Network Management</a></li>
+            <li><a href="services.html#consulting" data-i18n="ft_s6">IT Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="ft_co_h">Company</h4>
+          <ul>
+            <li><a href="index.html"         data-i18n="ft_c1">Home</a></li>
+            <li><a href="about.html"         data-i18n="ft_c2">About</a></li>
+            <li><a href="index.html#pricing" data-i18n="ft_c3">Pricing</a></li>
+            <li><a href="index.html#faq"     data-i18n="ft_c4">FAQ</a></li>
+            <li><a href="index.html#contact" data-i18n="ft_c5">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="ft_copy">© 2026 BlueWave IT. Reliable technology for growing businesses.</span>
+        <div class="footer-legal">
+          <a href="#" data-i18n="ft_privacy">Privacy Policy</a>
+          <a href="#" data-i18n="ft_gdpr">GDPR</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+  const T = {
+    en: {
+      nav_label:'Managed IT Services', nav_home:'Home', nav_services:'Services', nav_about:'About', nav_pricing:'Pricing', nav_contact:'Contact', cta_book:'Book a Consultation',
+      theme_dark:'Dark', theme_light:'Light',
+      bc_home:'Home', bc_current:'About',
+      hero_label:'Who We Are',
+      hero_h1_a:'Built for the', hero_h1_b:'businesses that', hero_h1_c:'keep the Algarve moving.',
+      hero_p:'BlueWave IT is a Portimão-based managed service provider delivering enterprise-grade IT support, cybersecurity, and cloud management to small and midsize businesses across the Algarve region.',
+      hero_cta_1:'Work With Us', hero_cta_2:'View Services',
+      id_hq_label:'Headquarters',   id_hq_value:'Portimão, Algarve, Portugal',
+      id_addr_label:'Address',      id_addr_value:'Av. 25 de Abril 6, 8500-511 Portimão',
+      id_type_label:'Business Type',id_type_value:'Managed Service Provider (MSP)',
+      id_focus_label:'Focus',       id_focus_value:'SMBs — 5 to 50 employees',
+      id_comp_label:'Compliance',   id_comp_value:'GDPR-aligned, EU data practices',
+      stat_1_lbl:'Businesses supported across the Algarve',
+      stat_2_lbl:'Average backup integrity across all clients',
+      stat_3_lbl:'Average helpdesk response time',
+      stat_4_lbl:'Core service areas delivered per client',
+      mission_label:'Mission & Values',
+      mission_h:'Technology should work. Quietly. Reliably. Every single day.',
+      mission_p1:'Too many small businesses in the Algarve are running on reactive IT — calling for help when things break, crossing fingers during backups, and wondering if they\'re actually protected. BlueWave IT was built to change that.',
+      mission_p2:'We believe every business — regardless of size — deserves the kind of IT infrastructure that enterprises take for granted: monitored, secured, backed up, and actively managed by people who actually understand it.',
+      val_1_t:'Proactive over reactive',    val_1_b:'We don\'t wait for things to break. We monitor, patch, verify, and alert — so problems are caught before they become incidents and incidents don\'t become disasters.',
+      val_2_t:'Clarity without jargon',     val_2_b:'IT support shouldn\'t require a degree to understand. We communicate clearly, explain our reasoning, and make sure clients always know what we\'re doing and why.',
+      val_3_t:'Security as a foundation',   val_3_b:'Security isn\'t an add-on. Every service we deliver — from patch management to cloud configuration — is built with security thinking from the ground up, not bolted on afterwards.',
+      val_4_t:'Right-sized for your business', val_4_b:'We don\'t oversell. We match the solution to the need — recommending only what actually serves the business, and growing the relationship as the business grows.',
+      rings_h:'Core pillars of our service model',
+      rings_center_val:'MSP', rings_center_lbl:'Managed Services',
+      pillar_1:'Security', pillar_2:'Cloud', pillar_3:'Network', pillar_4:'Backup', pillar_5:'Support', pillar_6:'Consulting',
+      tl_label:'Our Story', tl_h:'How BlueWave IT came to be', tl_p:'Built from years of hands-on experience with the real IT challenges that Algarve SMBs face every day.',
+      tl_1_year:'Foundation',   tl_1_h:'Born from firsthand frustration',        tl_1_p:'BlueWave IT was founded after seeing too many Algarve businesses lose time and money to preventable IT problems — slow responses, unverified backups, and security gaps that no one was watching.',
+      tl_2_year:'First clients', tl_2_h:'Starting with local businesses',        tl_2_p:'The first managed service contracts came from real estate agencies and professional services firms in Portimão and Lagos — businesses with no internal IT and real stakes in keeping systems running.',
+      tl_3_year:'Security focus',tl_3_h:'Cybersecurity becomes core',            tl_3_p:'As ransomware attacks on small businesses accelerated across Europe, BlueWave IT built a full cybersecurity layer into every managed service engagement — EDR, email security, MFA, and firewall management.',
+      tl_4_year:'Cloud expansion',tl_4_h:'Microsoft 365 & cloud services',       tl_4_p:'Growing adoption of cloud tools in the Algarve business community led to a full M365 administration practice — migrations, SharePoint, Teams, and Defender — alongside backup and recovery services.',
+      tl_5_year:'Today',         tl_5_h:'One team. Six services. One region.',   tl_5_p:'BlueWave IT operates from Portimão as the Algarve\'s dedicated MSP — delivering comprehensive, proactive IT across managed services, cybersecurity, cloud, networking, backup, and consulting.',
+      alg_label:'Our Region',
+      alg_h:'Rooted in the Algarve. Built for Algarve businesses.',
+      alg_p1:'We\'re not a remote helpdesk or a multinational franchise. BlueWave IT is based in Portimão — we know the region, the business community, the seasonality challenges, and the specific IT pressures that come with running a company here.',
+      alg_p2:'From tourism operations that need rock-solid connectivity in high season, to law and accounting firms that need GDPR-compliant data handling, to construction companies managing remote sites — we understand the context that generic IT providers miss.',
+      chip_portimao:'Portimão', chip_lagos:'Lagos', chip_faro:'Faro', chip_albufeira:'Albufeira', chip_silves:'Silves', chip_tavira:'Tavira', chip_vilareal:'Vila Real de Santo António',
+      map_h:'BlueWave IT — Portimão Office', map_live:'Open',
+      map_addr_label:'Address',       map_addr_value:'Av. 25 de Abril 6, 8500-511 Portimão',
+      map_region_label:'Service Region', map_region_value:'Algarve, Portugal',
+      map_hours_label:'Business Hours',  map_hours_value:'Mon–Fri, 9:00–18:00 WET',
+      map_cta:'Open in Google Maps →',
+      approach_label:'How We Work', approach_h:'The BlueWave IT way', approach_p:'A few non-negotiable principles that shape every client relationship and every service we deliver.',
+      ap_1_h:'Always-on visibility',     ap_1_p:'We monitor your environment continuously — not just when something breaks. You always have a clear picture of the health of your systems, and so do we.',
+      ap_2_h:'A real person answers',    ap_2_p:'No ticket black holes. No endless call trees. When something needs attention, a qualified engineer responds — not a bot, not a first-tier script reader.',
+      ap_3_h:'Predictable costs, no surprises', ap_3_p:'The €60/user/month model exists because your IT budget shouldn\'t be a mystery. One invoice, all six service areas, nothing hidden.',
+      ap_4_h:'Security-first, always',   ap_4_p:'Security is a design principle, not an upsell. Every environment we manage is hardened, every user we onboard gets MFA, every backup is encrypted and tested.',
+      ap_5_h:'Clear documentation',      ap_5_p:'We document what we build. Network diagrams, runbooks, recovery procedures — you own the knowledge about your own infrastructure, not just us.',
+      ap_6_h:'Built to scale with you',  ap_6_p:'Whether you grow from 10 to 30 users or open a second office in Faro, the managed service model scales with you — no renegotiation, no re-scoping.',
+      stack_label:'Technology Stack', stack_h:'The tools we use to manage your environment', stack_p:'Industry-standard platforms chosen for reliability, security, and the ability to deliver enterprise-grade management at SMB scale.',
+      stab_all:'All', stab_platform:'Platforms', stab_security:'Security', stab_network:'Networking', stab_backup:'Backup', stab_cloud:'Cloud',
+      s_platform:'Platform', s_security:'Security', s_network:'Networking', s_backup:'Backup', s_cloud:'Cloud',
+      comp_label:'Standards & Compliance', comp_h:'Operating to EU standards in every engagement', comp_p:'Every client environment we manage is handled with EU data protection practices and industry-standard security frameworks.',
+      cb_1_name:'GDPR Aligned',      cb_1_desc:'EU data handling practices',
+      cb_2_name:'Zero Trust Approach',cb_2_desc:'Verify every user, every access',
+      cb_3_name:'Verified Backups',   cb_3_desc:'Tested restore procedures',
+      cb_4_name:'MFA Enforced',       cb_4_desc:'All managed accounts',
+      cb_5_name:'Email Security',     cb_5_desc:'Anti-phishing & filtering',
+      cta_h:'Ready to meet your new IT partner?', cta_p:'Book a free consultation with BlueWave IT and let\'s talk about where your business is today, and where your IT should take it next.',
+      cta_btn1:'Book a Free Consultation', cta_btn2:'Explore Our Services',
+      ft_tagline:'Enterprise-grade IT management for growing businesses across the Algarve. Reliable, secure, and predictably priced.',
+      ft_svc_h:'Services', ft_co_h:'Company',
+      ft_s1:'Managed IT', ft_s2:'Cybersecurity', ft_s3:'Cloud & M365', ft_s4:'Backup & Recovery', ft_s5:'Network Management', ft_s6:'IT Consulting',
+      ft_c1:'Home', ft_c2:'About', ft_c3:'Pricing', ft_c4:'FAQ', ft_c5:'Contact',
+      ft_copy:'© 2026 BlueWave IT. Reliable technology for growing businesses.',
+      ft_privacy:'Privacy Policy', ft_gdpr:'GDPR',
+    },
+    pt: {
+      nav_label:'Serviços IT Geridos', nav_home:'Início', nav_services:'Serviços', nav_about:'Sobre', nav_pricing:'Preços', nav_contact:'Contacto', cta_book:'Marcar Consulta',
+      theme_dark:'Escuro', theme_light:'Claro',
+      bc_home:'Início', bc_current:'Sobre',
+      hero_label:'Quem Somos',
+      hero_h1_a:'Construída para as', hero_h1_b:'empresas que fazem', hero_h1_c:'o Algarve funcionar.',
+      hero_p:'A BlueWave IT é um fornecedor de serviços geridos sediado em Portimão, que oferece suporte IT, cibersegurança e gestão cloud de nível empresarial a pequenas e médias empresas em toda a região do Algarve.',
+      hero_cta_1:'Trabalhe Connosco', hero_cta_2:'Ver Serviços',
+      id_hq_label:'Sede',            id_hq_value:'Portimão, Algarve, Portugal',
+      id_addr_label:'Morada',        id_addr_value:'Av. 25 de Abril 6, 8500-511 Portimão',
+      id_type_label:'Tipo de Empresa',id_type_value:'Fornecedor de Serviços Geridos (MSP)',
+      id_focus_label:'Foco',         id_focus_value:'PMEs — 5 a 50 colaboradores',
+      id_comp_label:'Conformidade',  id_comp_value:'Alinhado com RGPD, práticas de dados EU',
+      stat_1_lbl:'Empresas apoiadas em todo o Algarve',
+      stat_2_lbl:'Taxa média de integridade de backups em todos os clientes',
+      stat_3_lbl:'Tempo médio de resposta do helpdesk',
+      stat_4_lbl:'Áreas de serviço principais entregues por cliente',
+      mission_label:'Missão e Valores',
+      mission_h:'A tecnologia deve funcionar. Silenciosamente. De forma fiável. Todos os dias.',
+      mission_p1:'Demasiadas pequenas empresas no Algarve operam com um IT reativo — pedindo ajuda quando as coisas falham, cruzando os dedos durante os backups e sem saber se estão realmente protegidas. A BlueWave IT foi criada para mudar isso.',
+      mission_p2:'Acreditamos que cada empresa — independentemente do tamanho — merece o tipo de infraestrutura IT que as grandes empresas consideram garantido: monitorizada, segura, com backups e gerida ativamente por pessoas que realmente a entendem.',
+      val_1_t:'Proativo em vez de reativo',  val_1_b:'Não esperamos que as coisas falhem. Monitorizamos, aplicamos patches, verificamos e alertamos — para que os problemas sejam detetados antes de se tornarem incidentes e os incidentes não se tornem desastres.',
+      val_2_t:'Clareza sem jargão',          val_2_b:'O suporte IT não deve exigir um curso para ser compreendido. Comunicamos de forma clara, explicamos o nosso raciocínio e garantimos que os clientes sabem sempre o que estamos a fazer e porquê.',
+      val_3_t:'Segurança como fundação',     val_3_b:'A segurança não é um extra. Cada serviço que prestamos — da gestão de patches à configuração cloud — é construído com pensamento de segurança desde a base, não acrescentado depois.',
+      val_4_t:'Adequado ao seu negócio',     val_4_b:'Não vendemos em excesso. Ajustamos a solução à necessidade — recomendando apenas o que serve o negócio, e fazendo crescer a relação à medida que o negócio cresce.',
+      rings_h:'Pilares centrais do nosso modelo de serviço',
+      rings_center_val:'MSP', rings_center_lbl:'Serviços Geridos',
+      pillar_1:'Segurança', pillar_2:'Cloud', pillar_3:'Rede', pillar_4:'Backup', pillar_5:'Suporte', pillar_6:'Consultoria',
+      tl_label:'A Nossa História', tl_h:'Como surgiu a BlueWave IT', tl_p:'Construída com anos de experiência prática nos desafios reais de IT que as PMEs do Algarve enfrentam todos os dias.',
+      tl_1_year:'Fundação',       tl_1_h:'Nascida da frustração em primeira mão',    tl_1_p:'A BlueWave IT foi fundada depois de assistir a demasiadas empresas do Algarve perderem tempo e dinheiro com problemas IT evitáveis — respostas lentas, backups não verificados e falhas de segurança que ninguém estava a vigiar.',
+      tl_2_year:'Primeiros clientes',tl_2_h:'A começar com empresas locais',        tl_2_p:'Os primeiros contratos de serviço gerido vieram de agências imobiliárias e empresas de serviços profissionais em Portimão e Lagos — empresas sem IT interno e com muito a perder se os sistemas falhassem.',
+      tl_3_year:'Foco na segurança',tl_3_h:'A cibersegurança torna-se central',     tl_3_p:'Com a aceleração dos ataques de ransomware a pequenas empresas em toda a Europa, a BlueWave IT integrou uma camada completa de cibersegurança em todos os contratos — EDR, segurança de email, MFA e gestão de firewall.',
+      tl_4_year:'Expansão cloud',   tl_4_h:'Microsoft 365 e serviços cloud',        tl_4_p:'A crescente adoção de ferramentas cloud na comunidade empresarial do Algarve levou a uma prática completa de administração M365 — migrações, SharePoint, Teams e Defender — a par de serviços de backup e recuperação.',
+      tl_5_year:'Hoje',             tl_5_h:'Uma equipa. Seis serviços. Uma região.', tl_5_p:'A BlueWave IT opera a partir de Portimão como o MSP dedicado do Algarve — prestando IT proativo e abrangente em serviços geridos, cibersegurança, cloud, redes, backup e consultoria.',
+      alg_label:'A Nossa Região',
+      alg_h:'Enraizados no Algarve. Construídos para as empresas do Algarve.',
+      alg_p1:'Não somos um helpdesk remoto nem uma franquia multinacional. A BlueWave IT está sediada em Portimão — conhecemos a região, a comunidade empresarial, os desafios da sazonalidade e as pressões específicas de IT que vêm com gerir uma empresa aqui.',
+      alg_p2:'De operações turísticas que precisam de conectividade sólida na época alta, a escritórios de advogados e contabilistas que precisam de tratamento de dados conforme o RGPD, a empresas de construção a gerir estaleiros remotos — compreendemos o contexto que os fornecedores genéricos não entendem.',
+      chip_portimao:'Portimão', chip_lagos:'Lagos', chip_faro:'Faro', chip_albufeira:'Albufeira', chip_silves:'Silves', chip_tavira:'Tavira', chip_vilareal:'Vila Real de Santo António',
+      map_h:'BlueWave IT — Escritório de Portimão', map_live:'Aberto',
+      map_addr_label:'Morada',        map_addr_value:'Av. 25 de Abril 6, 8500-511 Portimão',
+      map_region_label:'Região de Serviço', map_region_value:'Algarve, Portugal',
+      map_hours_label:'Horário',      map_hours_value:'Seg–Sex, 9:00–18:00 WET',
+      map_cta:'Abrir no Google Maps →',
+      approach_label:'Como Trabalhamos', approach_h:'A forma BlueWave IT', approach_p:'Alguns princípios inegociáveis que moldam cada relação com o cliente e cada serviço que prestamos.',
+      ap_1_h:'Visibilidade permanente',       ap_1_p:'Monitorizamos o seu ambiente continuamente — não apenas quando algo falha. Tem sempre uma imagem clara da saúde dos seus sistemas, e nós também.',
+      ap_2_h:'Uma pessoa real responde',      ap_2_p:'Sem tickets sem resposta. Sem árvores de chamada intermináveis. Quando algo precisa de atenção, um engenheiro qualificado responde — não um bot, não um leitor de scripts de primeiro nível.',
+      ap_3_h:'Custos previsíveis, sem surpresas', ap_3_p:'O modelo €60/utilizador/mês existe porque o seu orçamento de IT não deve ser um mistério. Uma fatura, seis áreas de serviço, nada escondido.',
+      ap_4_h:'Segurança primeiro, sempre',    ap_4_p:'A segurança é um princípio de design, não um extra. Cada ambiente que gerimos é reforçado, cada utilizador que integramos tem MFA, cada backup é encriptado e testado.',
+      ap_5_h:'Documentação clara',            ap_5_p:'Documentamos o que construímos. Diagramas de rede, runbooks, procedimentos de recuperação — é o proprietário do conhecimento sobre a sua infraestrutura, não apenas nós.',
+      ap_6_h:'Construído para crescer consigo',ap_6_p:'Quer cresça de 10 para 30 utilizadores ou abra um segundo escritório em Faro, o modelo de serviço gerido escala consigo — sem renegociação, sem redefinição de âmbito.',
+      stack_label:'Tecnologias', stack_h:'As ferramentas que usamos para gerir o seu ambiente', stack_p:'Plataformas standard do sector escolhidas pela fiabilidade, segurança e capacidade de fornecer gestão de nível empresarial à escala das PMEs.',
+      stab_all:'Todas', stab_platform:'Plataformas', stab_security:'Segurança', stab_network:'Redes', stab_backup:'Backup', stab_cloud:'Cloud',
+      s_platform:'Plataforma', s_security:'Segurança', s_network:'Redes', s_backup:'Backup', s_cloud:'Cloud',
+      comp_label:'Normas e Conformidade', comp_h:'A operar segundo normas europeias em cada projeto', comp_p:'Cada ambiente cliente que gerimos é tratado com práticas de proteção de dados da UE e frameworks de segurança standard do sector.',
+      cb_1_name:'Alinhado com RGPD',       cb_1_desc:'Práticas de dados da UE',
+      cb_2_name:'Abordagem Zero Trust',    cb_2_desc:'Verificar cada utilizador, cada acesso',
+      cb_3_name:'Backups Verificados',     cb_3_desc:'Procedimentos de restauro testados',
+      cb_4_name:'MFA Aplicado',            cb_4_desc:'Todas as contas geridas',
+      cb_5_name:'Segurança de Email',      cb_5_desc:'Anti-phishing e filtragem',
+      cta_h:'Pronto para conhecer o seu novo parceiro IT?', cta_p:'Marque uma consulta gratuita com a BlueWave IT e falemos sobre onde está o seu negócio hoje e para onde o seu IT o deve levar a seguir.',
+      cta_btn1:'Marcar uma Consulta Gratuita', cta_btn2:'Explorar os Nossos Serviços',
+      ft_tagline:'Gestão IT de nível empresarial para empresas em crescimento no Algarve. Fiável, segura e com preço previsível.',
+      ft_svc_h:'Serviços', ft_co_h:'Empresa',
+      ft_s1:'IT Gerido', ft_s2:'Cibersegurança', ft_s3:'Cloud e M365', ft_s4:'Backup e Recuperação', ft_s5:'Gestão de Rede', ft_s6:'Consultoria IT',
+      ft_c1:'Início', ft_c2:'Sobre', ft_c3:'Preços', ft_c4:'FAQ', ft_c5:'Contacto',
+      ft_copy:'© 2026 BlueWave IT. Tecnologia fiável para empresas em crescimento.',
+      ft_privacy:'Política de Privacidade', ft_gdpr:'RGPD',
+    }
+  };
+
+  let currentLang = 'en';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.dataset.i18n;
+      if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+    });
+    document.querySelectorAll('[data-lang]').forEach(b =>
+      b.classList.toggle('active', b.dataset.lang === lang)
+    );
+    // Re-run stack filter to update category labels
+    filterStack(document.querySelector('.stack-tab.active')?.dataset.filter || 'all');
+  }
+
+  document.querySelectorAll('[data-lang]').forEach(b =>
+    b.addEventListener('click', () => setLanguage(b.dataset.lang))
+  );
+
+  /* ── theme ── */
+  document.querySelectorAll('[data-theme]').forEach(b => {
+    b.addEventListener('click', () => {
+      const t = b.dataset.theme;
+      document.body.classList.toggle('theme-light', t === 'light');
+      document.querySelectorAll('[data-theme]').forEach(x =>
+        x.classList.toggle('active', x.dataset.theme === t)
+      );
+    });
+  });
+
+  /* ── mobile nav ── */
+  const navToggle  = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    navToggle.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(l =>
+    l.addEventListener('click', () => { mobileMenu.classList.remove('open'); navToggle.textContent = '☰'; })
+  );
+
+  /* ── header scroll ── */
+  const header  = document.getElementById('siteHeader');
+  const backTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 16);
+    backTop.classList.toggle('show', window.scrollY > 500);
+  });
+  backTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── reveal ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* ── animated counters ── */
+  let countersStarted = false;
+  function animateCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
+    document.querySelectorAll('.counter').forEach(el => {
+      const target   = parseFloat(el.dataset.target);
+      const suffix   = el.dataset.suffix || '';
+      const decimals = Number.isInteger(target) ? 0 : 1;
+      const dur = 1400, t0 = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = (decimals ? (target * e).toFixed(1) : Math.round(target * e)) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) animateCounters(); });
+  }, { threshold: 0.3 });
+  const firstStat = document.querySelector('.stat-card');
+  if (firstStat) statsObs.observe(firstStat);
+
+  /* ── values accordion ── */
+  document.querySelectorAll('.value-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      // close siblings
+      item.parentElement.querySelectorAll('.value-item.open').forEach(v => {
+        if (v !== item) v.classList.remove('open');
+      });
+      item.classList.toggle('open');
+    });
+  });
+
+  /* ── tech stack filter ── */
+  function filterStack(filter) {
+    document.querySelectorAll('.stack-item').forEach(item => {
+      const show = filter === 'all' || item.dataset.cat === filter;
+      item.classList.toggle('hidden', !show);
+    });
+    document.querySelectorAll('.stack-tab').forEach(t =>
+      t.classList.toggle('active', t.dataset.filter === filter)
+    );
+  }
+  document.querySelectorAll('.stack-tab').forEach(tab =>
+    tab.addEventListener('click', () => filterStack(tab.dataset.filter))
+  );
+
+  /* ── init ── */
+  setLanguage('en');
+  </script>
+</body>
+</html>
