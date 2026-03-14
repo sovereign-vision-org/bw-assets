@@ -828,6 +828,13 @@
       color: var(--text);
     }
     .service-card.is-hidden { display: none; }
+    .svc-detail-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 14px; font-size: 0.84rem; font-weight: 600;
+      font-family: var(--font-display); color: var(--cyan-2);
+      text-decoration: none; transition: gap 160ms, opacity 160ms;
+    }
+    .svc-detail-link:hover { gap: 8px; opacity: 0.8; }
 
     .service-preview-inset {
       margin-top: 8px;
@@ -1541,10 +1548,10 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#services" data-i18n="nav_services">Services</a>
-        <a href="#about"    data-i18n="nav_about">About</a>
-        <a href="#pricing"  data-i18n="nav_pricing">Pricing</a>
-        <a href="#faq"      data-i18n="nav_faq">FAQ</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="nav_services">Services</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/about.html"    data-i18n="nav_about">About</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html"  data-i18n="nav_pricing">Pricing</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html#faq"      data-i18n="nav_faq">FAQ</a>
         <a href="#contact"  data-i18n="nav_contact">Contact</a>
       </nav>
 
@@ -1562,10 +1569,10 @@
     </div>
 
     <div class="container mobile-menu" id="mobileMenu">
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#about"    data-i18n="nav_about">About</a>
-      <a href="#pricing"  data-i18n="nav_pricing">Pricing</a>
-      <a href="#faq"      data-i18n="nav_faq">FAQ</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="nav_services">Services</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/about.html"    data-i18n="nav_about">About</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html"  data-i18n="nav_pricing">Pricing</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html#faq"      data-i18n="nav_faq">FAQ</a>
       <a href="#contact"  data-i18n="nav_contact">Contact</a><div class="toggle-group">
           <button class="toggle-btn active" data-theme="dark"  data-i18n="theme_dark">Dark</button>
           <button class="toggle-btn"        data-theme="light" data-i18n="theme_light">Light</button>
@@ -1591,7 +1598,7 @@
           <p data-i18n="hero_body">BlueWave IT helps Algarve businesses stay secure, connected, and productive — with managed IT services, cybersecurity, cloud support, and fast technical assistance.</p>
           <div class="hero-actions">
             <a class="btn btn-primary"    href="#contact"  data-i18n="cta_request">Request a Consultation</a>
-            <a class="btn btn-secondary"  href="#services" data-i18n="cta_explore">Explore Services</a>
+            <a class="btn btn-secondary"  href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="cta_explore">Explore Services</a>
           </div>
           <div class="hero-points">
             <div class="hero-point">
@@ -1824,6 +1831,7 @@
               <li data-i18n="svc_it_f2">Patch management</li>
               <li data-i18n="svc_it_f3">Remote support</li>
             </ul>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#managed-it" class="svc-detail-link" data-i18n="svc_details">Details →</a>
           </article>
           <article class="card hover-lift tilt-card service-card" data-category="security">
             <div class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9.5 12.5l1.7 1.7 3.8-3.9"/></svg></div>
@@ -1834,6 +1842,7 @@
               <li data-i18n="svc_sec_f2">Security hardening</li>
               <li data-i18n="svc_sec_f3">User awareness support</li>
             </ul>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#cybersecurity" class="svc-detail-link" data-i18n="svc_details">Details →</a>
           </article>
           <article class="card hover-lift tilt-card service-card" data-category="cloud">
             <div class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .4-8A5.5 5.5 0 0 0 6.8 8.2 3.8 3.8 0 0 0 7 18z"/></svg></div>
@@ -1844,6 +1853,7 @@
               <li data-i18n="svc_cloud_f2">Cloud migrations</li>
               <li data-i18n="svc_cloud_f3">Remote work readiness</li>
             </ul>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#cloud" class="svc-detail-link" data-i18n="svc_details">Details →</a>
           </article>
           <article class="card hover-lift tilt-card service-card" data-category="core">
             <div class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 8h16"/><path d="M4 16h16"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
@@ -1854,6 +1864,7 @@
               <li data-i18n="svc_net_f2">Network monitoring</li>
               <li data-i18n="svc_net_f3">Wi-Fi optimization</li>
             </ul>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#networking" class="svc-detail-link" data-i18n="svc_details">Details →</a>
           </article>
           <article class="card hover-lift tilt-card service-card" data-category="continuity">
             <div class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 8v5l3 2"/><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 4v6h-6"/></svg></div>
@@ -1864,6 +1875,7 @@
               <li data-i18n="svc_backup_f2">Restore testing</li>
               <li data-i18n="svc_backup_f3">Disaster recovery planning</li>
             </ul>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#backup" class="svc-detail-link" data-i18n="svc_details">Details →</a>
           </article>
           <article class="card hover-lift tilt-card service-card" data-category="core">
             <div class="card-icon"><svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .98 1.7 1.7 0 0 1-3.2 0 1.7 1.7 0 0 0-1-.98 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.98-1 1.7 1.7 0 0 1 0-3.2 1.7 1.7 0 0 0 .98-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.98 1.7 1.7 0 0 1 3.2 0 1.7 1.7 0 0 0 1 .98 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.23.39.57.68 1 .8a1.7 1.7 0 0 1 0 3.2 1.7 1.7 0 0 0-1 .8z"/></svg></div>
@@ -1874,6 +1886,7 @@
               <li data-i18n="svc_consult_f2">Vendor guidance</li>
               <li data-i18n="svc_consult_f3">Growth-ready infrastructure</li>
             </ul>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#consulting" class="svc-detail-link" data-i18n="svc_details">Details →</a>
           </article>
         </div>
       </div>
@@ -1916,7 +1929,7 @@
               </div>
               <div class="remote-actions">
                 <a href="#contact" class="btn btn-primary"   data-i18n="remote_cta_1">Book a Consultation</a>
-                <a href="#pricing" class="btn btn-secondary" data-i18n="remote_cta_2">See Pricing</a>
+                <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html" class="btn btn-secondary" data-i18n="remote_cta_2">See Pricing</a>
               </div>
             </div>
 
@@ -2191,19 +2204,19 @@
         <div class="footer-col">
           <h4 data-i18n="footer_services_head">Services</h4>
           <ul>
-            <li><a href="#services" data-i18n="svc_it_title">Managed IT</a></li>
-            <li><a href="#services" data-i18n="svc_sec_title">Cybersecurity</a></li>
-            <li><a href="#services" data-i18n="svc_cloud_title">Cloud Services</a></li>
-            <li><a href="#services" data-i18n="svc_net_title">Network Management</a></li>
-            <li><a href="#services" data-i18n="svc_backup_title">Backup &amp; Recovery</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="svc_it_title">Managed IT</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="svc_sec_title">Cybersecurity</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="svc_cloud_title">Cloud Services</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="svc_net_title">Network Management</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html" data-i18n="svc_backup_title">Backup &amp; Recovery</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer_company_head">Company</h4>
           <ul>
-            <li><a href="#about"   data-i18n="nav_about">About</a></li>
-            <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
-            <li><a href="#faq"     data-i18n="nav_faq">FAQ</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/about.html"   data-i18n="nav_about">About</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/pricing.html#faq"     data-i18n="nav_faq">FAQ</a></li>
             <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
             <li><a href="#contact" data-i18n="footer_free_assessment">Free Assessment</a></li>
           </ul>
@@ -2239,6 +2252,7 @@
         svc_it_title:'Managed IT Services', svc_it_body:'Day-to-day IT management, maintenance, updates, endpoint support, and proactive monitoring.', svc_it_f1:'24/7 monitoring', svc_it_f2:'Patch management', svc_it_f3:'Remote support',
         svc_sec_title:'Cybersecurity', svc_sec_body:'Protect your users, devices, and data with layered security and practical risk reduction.', svc_sec_f1:'Endpoint protection', svc_sec_f2:'Security hardening', svc_sec_f3:'User awareness support',
         svc_cloud_title:'Cloud Services', svc_cloud_body:'Support for Microsoft 365, cloud migrations, shared files, email, and collaboration tools.', svc_cloud_f1:'Microsoft 365 administration', svc_cloud_f2:'Cloud migrations', svc_cloud_f3:'Remote work readiness',
+        svc_details:'Details →',
         svc_net_title:'Network Management', svc_net_body:'Reliable infrastructure, firewall support, Wi-Fi optimization, and visibility into network health.', svc_net_f1:'Firewall and router support', svc_net_f2:'Network monitoring', svc_net_f3:'Wi-Fi optimization',
         svc_backup_title:'Backup & Recovery', svc_backup_body:'Resilient backup strategies and fast recovery planning to reduce downtime and risk.', svc_backup_f1:'Automated backups', svc_backup_f2:'Restore testing', svc_backup_f3:'Disaster recovery planning',
         svc_consult_title:'IT Consulting', svc_consult_body:'Clear guidance on upgrades, security improvements, budgeting, and long-term technology decisions.', svc_consult_f1:'Roadmaps and planning', svc_consult_f2:'Vendor guidance', svc_consult_f3:'Growth-ready infrastructure',
@@ -2272,6 +2286,7 @@
         svc_it_title:'Serviços IT Geridos', svc_it_body:'Gestão diária de IT, manutenção, atualizações, suporte a endpoints e monitorização proativa.', svc_it_f1:'Monitorização 24/7', svc_it_f2:'Gestão de patches', svc_it_f3:'Suporte remoto',
         svc_sec_title:'Cibersegurança', svc_sec_body:'Proteja utilizadores, dispositivos e dados com segurança em camadas e redução prática de risco.', svc_sec_f1:'Proteção de endpoints', svc_sec_f2:'Endurecimento de segurança', svc_sec_f3:'Apoio à sensibilização dos utilizadores',
         svc_cloud_title:'Serviços Cloud', svc_cloud_body:'Suporte para Microsoft 365, migrações cloud, ficheiros partilhados, email e colaboração.', svc_cloud_f1:'Administração Microsoft 365', svc_cloud_f2:'Migrações cloud', svc_cloud_f3:'Preparação para trabalho remoto',
+        svc_details:'Detalhes →',
         svc_net_title:'Gestão de Rede', svc_net_body:'Infraestrutura fiável, apoio a firewalls, otimização Wi‑Fi e visibilidade da saúde da rede.', svc_net_f1:'Suporte a firewalls e routers', svc_net_f2:'Monitorização de rede', svc_net_f3:'Otimização Wi‑Fi',
         svc_backup_title:'Backup e Recuperação', svc_backup_body:'Estratégias de backup resilientes e planeamento de recuperação rápida para reduzir paragens e risco.', svc_backup_f1:'Backups automáticos', svc_backup_f2:'Testes de restauro', svc_backup_f3:'Planeamento de disaster recovery',
         svc_consult_title:'Consultoria IT', svc_consult_body:'Orientação clara sobre upgrades, melhorias de segurança, orçamento e decisões tecnológicas de longo prazo.', svc_consult_f1:'Roadmaps e planeamento', svc_consult_f2:'Orientação de fornecedores', svc_consult_f3:'Infraestrutura preparada para crescer',
