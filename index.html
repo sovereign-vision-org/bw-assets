@@ -1535,6 +1535,16 @@
     .cve-badge.med  { background:rgba(255,207,78,0.12); border:1px solid rgba(255,207,78,0.25); color:#ffe8a0; }
     .cve-badge.low  { background:rgba(62,232,154,0.10); border:1px solid rgba(62,232,154,0.22); color:#a8ffd6; }
     .cve-badge.none { background:rgba(255,255,255,0.04);border:1px solid var(--line);           color:var(--muted); }
+
+    select {
+  background-color: #0f1f2d;
+  color: #ffffff;
+}
+
+select option {
+  background-color: #ffffff;
+  color: #000000;
+}
   </style>
 </head>
 <body>
@@ -2046,7 +2056,7 @@
         </div>
         <div class="grid-2">
           <div class="card pricing-card">
-            <div class="pricing-ribbon" data-i18n="pricing_ribbon">Best for growing teams</div>
+            <div class="pricing-ribbon" data-i18n="pricing_ribbon">Best Value</div>
             <h3 style="font-size:1.1rem;margin-bottom:4px;" data-i18n="pricing_plan_name">Standard Managed Plan</h3>
             <div class="price">
               <strong>€60</strong>
@@ -2187,7 +2197,7 @@
                 <option data-en="Backup & Recovery"    data-pt="Backup e Recuperação">Backup & Recovery</option>
                 <option data-en="IT Consulting"        data-pt="Consultoria IT">IT Consulting</option>
               </select>
-              <textarea id="messageField" name="message" placeholder="Tell us about your business and what support you need." data-ph-en="Tell us about your business and what support you need." data-ph-pt="Fale-nos da sua empresa e do apoio que necessita." required></textarea>
+              <textarea id="messageField" name="message" placeholder="Tell us about your business and what support you need." data-ph-en="Tell us about your business and what support you need." data-ph-pt="Fale-nos da sua empresa e do apoio que necessita." required></textarea><br>
               <button class="btn btn-primary" type="submit" id="formSubmitBtn" style="width:100%;justify-content:center;" data-i18n="cta_schedule">Schedule a Consultation</button>
               <div class="form-status" id="formStatus"></div>
             </form>
@@ -2234,8 +2244,8 @@
       <div class="footer-bottom">
         <span data-i18n="footer_copy">© 2026 BlueWave IT. Reliable technology for growing businesses.</span>
         <div class="footer-legal">
-          <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
-          <a href="#" data-i18n="footer_gdpr">GDPR</a>
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="GDPR.html" data-i18n="footer_gdpr">GDPR</a>
         </div>
       </div>
     </div>
