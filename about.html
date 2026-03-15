@@ -268,8 +268,10 @@
     .rings-center-text strong { display: block; font-family: var(--fd); font-size: 1.5rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 4px; }
     .rings-center-text span { color: var(--muted); font-size: 0.78rem; }
     .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .pillar { padding: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--line); border-radius: 12px; text-align: center; }
-    .pillar-icon { font-size: 1.3rem; margin-bottom: 6px; }
+    .pillar { padding: 14px 10px; background: rgba(255,255,255,0.025); border: 1px solid var(--line); border-radius: 12px; text-align: center; transition: border-color 200ms, background 200ms; }
+    .pillar:hover { border-color: rgba(56,217,232,0.26); background: rgba(255,255,255,0.045); }
+    .pillar-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+    .pillar-icon svg { display: block; }
     .pillar-name { font-size: 0.78rem; font-weight: 600; color: var(--muted-2); }
 
     /* ── STORY TIMELINE ── */
@@ -475,7 +477,7 @@
   <!-- ── HEADER ── -->
   <header class="site-header" id="siteHeader">
     <div class="container nav">
-      <a href="index.html" class="logo" aria-label="BlueWave IT Home">
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html" class="logo" aria-label="BlueWave IT Home">
         <div class="logo-mark">
           <img src="https://raw.githubusercontent.com/astraseeker001-bot/bluewaveit/main/assests/logo_dark.png" data-dark="https://raw.githubusercontent.com/astraseeker001-bot/bluewaveit/main/assests/logo_dark.png" data-light="https://raw.githubusercontent.com/astraseeker001-bot/bluewaveit/main/assests/logo_light.png" alt="BlueWave IT" class="logo-img" width="38" height="38" style="width:100%;height:100%;object-fit:contain;border-radius:10px;"/>
         </div>
@@ -485,11 +487,11 @@
         </div>
       </a>
       <nav class="nav-links">
-        <a href="index.html"     data-i18n="nav_home">Home</a>
-        <a href="services.html"  data-i18n="nav_services">Services</a>
-        <a href="about.html" class="active" data-i18n="nav_about">About</a>
-        <a href="index.html#pricing" data-i18n="nav_pricing">Pricing</a>
-        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html"     data-i18n="nav_home">Home</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html"  data-i18n="nav_services">Services</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/about.html" class="active" data-i18n="nav_about">About</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#pricing" data-i18n="nav_pricing">Pricing</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#contact" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="nav-right">
         <div class="tog nav-theme-tog" aria-label="Theme switcher">
@@ -504,11 +506,11 @@
       </div>
     </div>
     <div class="container mobile-menu" id="mobileMenu">
-      <a href="index.html"         data-i18n="nav_home">Home</a>
-      <a href="services.html"      data-i18n="nav_services">Services</a>
-      <a href="about.html"         data-i18n="nav_about">About</a>
-      <a href="index.html#pricing" data-i18n="nav_pricing">Pricing</a>
-      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html"         data-i18n="nav_home">Home</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html"      data-i18n="nav_services">Services</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/about.html"         data-i18n="nav_about">About</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#contact" data-i18n="nav_contact">Contact</a>
       <div class="mobile-menu-theme">
         <div class="tog" aria-label="Theme switcher">
           <button class="tog-btn active" data-theme="dark"  data-i18n="theme_dark">Dark</button>
@@ -524,7 +526,7 @@
       <div class="hero-bg-img" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-breadcrumb reveal">
-        <a href="index.html" data-i18n="bc_home">Home</a>
+        <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html" data-i18n="bc_home">Home</a>
         <span class="sep">›</span>
         <span class="current" data-i18n="bc_current">About</span>
       </div>
@@ -538,8 +540,8 @@
           </h1>
           <p class="reveal d2" data-i18n="hero_p">BlueWave IT is a Portimão-based managed service provider delivering enterprise-grade IT support, cybersecurity, and cloud management to small and midsize businesses across the Algarve region.</p>
           <div class="reveal d2" style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a href="index.html#contact" class="btn btn-primary"   data-i18n="hero_cta_1">Work With Us</a>
-            <a href="services.html"      class="btn btn-secondary" data-i18n="hero_cta_2">View Services</a>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#contact" class="btn btn-primary"   data-i18n="hero_cta_1">Work With Us</a>
+            <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html"      class="btn btn-secondary" data-i18n="hero_cta_2">View Services</a>
           </div>
         </div>
         <div class="reveal d2">
@@ -701,30 +703,91 @@
               </div>
             </div>
             <div class="pillars-grid">
+
+              <!-- Security -->
               <div class="pillar">
-                <div class="pillar-icon">🛡️</div>
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 3L5 7.5V15c0 6.627 4.925 11.447 11 13 6.075-1.553 11-6.373 11-13V7.5L16 3Z" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linejoin="round"/>
+                    <polyline points="11,16 14.5,19.5 21,12.5" stroke="var(--cyan-3)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
                 <div class="pillar-name" data-i18n="pillar_1">Security</div>
               </div>
+
+              <!-- Cloud -->
               <div class="pillar">
-                <div class="pillar-icon">☁️</div>
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 22a5 5 0 0 1-.5-10A7 7 0 0 1 23 14a4 4 0 0 1-.5 8H9Z" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linejoin="round"/>
+                    <line x1="16" y1="18" x2="16" y2="27" stroke="var(--cyan-3)" stroke-width="1.75" stroke-linecap="round"/>
+                    <polyline points="12.5,23.5 16,27 19.5,23.5" stroke="var(--cyan-3)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
                 <div class="pillar-name" data-i18n="pillar_2">Cloud</div>
               </div>
+
+              <!-- Network -->
               <div class="pillar">
-                <div class="pillar-icon">📡</div>
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="3" stroke="var(--cyan-2)" stroke-width="1.75"/>
+                    <circle cx="6"  cy="9"  r="2.5" stroke="var(--cyan-3)" stroke-width="1.5"/>
+                    <circle cx="26" cy="9"  r="2.5" stroke="var(--cyan-3)" stroke-width="1.5"/>
+                    <circle cx="6"  cy="23" r="2.5" stroke="var(--cyan-3)" stroke-width="1.5"/>
+                    <circle cx="26" cy="23" r="2.5" stroke="var(--cyan-3)" stroke-width="1.5"/>
+                    <line x1="8.5"  y1="10.2" x2="13.5" y2="14.5" stroke="var(--cyan-2)" stroke-width="1.4" stroke-linecap="round"/>
+                    <line x1="23.5" y1="10.2" x2="18.5" y2="14.5" stroke="var(--cyan-2)" stroke-width="1.4" stroke-linecap="round"/>
+                    <line x1="8.5"  y1="21.8" x2="13.5" y2="17.5" stroke="var(--cyan-2)" stroke-width="1.4" stroke-linecap="round"/>
+                    <line x1="23.5" y1="21.8" x2="18.5" y2="17.5" stroke="var(--cyan-2)" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                </div>
                 <div class="pillar-name" data-i18n="pillar_3">Network</div>
               </div>
+
+              <!-- Backup -->
               <div class="pillar">
-                <div class="pillar-icon">💾</div>
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12a9 9 0 1 1-2.64-6.36" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linecap="round"/>
+                    <polyline points="21,4 21,10 15,10" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="16" y1="12" x2="16" y2="20" stroke="var(--cyan-3)" stroke-width="1.75" stroke-linecap="round"/>
+                    <polyline points="12.5,16.5 16,12.5 19.5,16.5" stroke="var(--cyan-3)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
                 <div class="pillar-name" data-i18n="pillar_4">Backup</div>
               </div>
+
+              <!-- Support -->
               <div class="pillar">
-                <div class="pillar-icon">🔧</div>
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="11" stroke="var(--cyan-2)" stroke-width="1.75"/>
+                    <circle cx="16" cy="16" r="5"  stroke="var(--cyan-3)" stroke-width="1.5"/>
+                    <line x1="16" y1="5"  x2="16" y2="11" stroke="var(--cyan-2)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="16" y1="21" x2="16" y2="27" stroke="var(--cyan-2)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="5"  y1="16" x2="11" y2="16" stroke="var(--cyan-2)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="21" y1="16" x2="27" y2="16" stroke="var(--cyan-2)" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
                 <div class="pillar-name" data-i18n="pillar_5">Support</div>
               </div>
+
+              <!-- Consulting -->
               <div class="pillar">
-                <div class="pillar-icon">📊</div>
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="5" width="22" height="16" rx="2.5" stroke="var(--cyan-2)" stroke-width="1.75"/>
+                    <line x1="10" y1="11" x2="22" y2="11" stroke="var(--cyan-3)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="10" y1="15" x2="18" y2="15" stroke="var(--cyan-3)" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 21v3l4-3h0" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="20" y1="21" x2="20" y2="24" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linecap="round"/>
+                    <line x1="17" y1="24" x2="23" y2="24" stroke="var(--cyan-2)" stroke-width="1.75" stroke-linecap="round"/>
+                  </svg>
+                </div>
                 <div class="pillar-name" data-i18n="pillar_6">Consulting</div>
               </div>
+
             </div>
           </div>
         </div>
@@ -1007,8 +1070,8 @@
         <h2 data-i18n="cta_h">Ready to meet your new IT partner?</h2>
         <p data-i18n="cta_p">Book a free consultation with BlueWave IT and let's talk about where your business is today, and where your IT should take it next.</p>
         <div class="cta-btns">
-          <a href="index.html#contact" class="btn btn-primary"   data-i18n="cta_btn1">Book a Free Consultation</a>
-          <a href="services.html"      class="btn btn-secondary" data-i18n="cta_btn2">Explore Our Services</a>
+          <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#contact" class="btn btn-primary"   data-i18n="cta_btn1">Book a Free Consultation</a>
+          <a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html"      class="btn btn-secondary" data-i18n="cta_btn2">Explore Our Services</a>
         </div>
       </div>
     </div>
@@ -1030,22 +1093,22 @@
         <div class="footer-col">
           <h4 data-i18n="ft_svc_h">Services</h4>
           <ul>
-            <li><a href="services.html#managed-it" data-i18n="ft_s1">Managed IT</a></li>
-            <li><a href="services.html#cybersecurity" data-i18n="ft_s2">Cybersecurity</a></li>
-            <li><a href="services.html#cloud" data-i18n="ft_s3">Cloud &amp; M365</a></li>
-            <li><a href="services.html#backup" data-i18n="ft_s4">Backup &amp; Recovery</a></li>
-            <li><a href="services.html#networking" data-i18n="ft_s5">Network Management</a></li>
-            <li><a href="services.html#consulting" data-i18n="ft_s6">IT Consulting</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#managed-it" data-i18n="ft_s1">Managed IT</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#cybersecurity" data-i18n="ft_s2">Cybersecurity</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#cloud" data-i18n="ft_s3">Cloud &amp; M365</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#backup" data-i18n="ft_s4">Backup &amp; Recovery</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#networking" data-i18n="ft_s5">Network Management</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/services.html#consulting" data-i18n="ft_s6">IT Consulting</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4 data-i18n="ft_co_h">Company</h4>
           <ul>
-            <li><a href="index.html"         data-i18n="ft_c1">Home</a></li>
-            <li><a href="about.html"         data-i18n="ft_c2">About</a></li>
-            <li><a href="index.html#pricing" data-i18n="ft_c3">Pricing</a></li>
-            <li><a href="index.html#faq"     data-i18n="ft_c4">FAQ</a></li>
-            <li><a href="index.html#contact" data-i18n="ft_c5">Contact</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html"         data-i18n="ft_c1">Home</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/about.html"         data-i18n="ft_c2">About</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#pricing" data-i18n="ft_c3">Pricing</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#faq"     data-i18n="ft_c4">FAQ</a></li>
+            <li><a href="https://cdn.jsdelivr.net/gh/sovereign-vision-org/bw-assets@main/index.html#contact" data-i18n="ft_c5">Contact</a></li>
           </ul>
         </div>
       </div>
