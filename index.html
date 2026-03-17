@@ -2285,7 +2285,7 @@ select option {
               </select>
               <textarea id="messageField" name="message" placeholder="Tell us about your business and what support you need." data-ph-en="Tell us about your business and what support you need." data-ph-pt="Fale-nos da sua empresa e do apoio que necessita." required></textarea><br>
               <button class="btn btn-primary" type="submit" id="formSubmitBtn" style="width:100%;justify-content:center;" data-i18n="cta_schedule">Schedule a Consultation</button>
-              <div class="form-status" id="formStatus"></div>
+              <div class="form-status" id="formStatus"></div><div class="cf-turnstile" data-sitekey="0x4AAAAAACsPyae8CCOwYrCp"></div>
             </form>
           </div>
         </div>
@@ -2920,6 +2920,17 @@ select option {
     loadMsrc();
 
   })();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  const token = document.querySelector('[name="cf-turnstile-response"]');
+
+  if (!token || !token.value) {
+    e.preventDefault();
+    alert("Please complete the security check.");
+  }
+});
 </script>
 </body>
 </html>
